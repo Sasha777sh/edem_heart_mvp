@@ -1,18 +1,21 @@
-# Use official Python runtime
-FROM python:3.11-slim
+FROM python:3.10-slim
 
-# Set working directory
 WORKDIR /app
 
-# Install dependencies
+# Install system dependencies for Pillow and ReportLab
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libjpeg-dev \
+    zlib1g-dev \
+    fontconfig \
+    libfreetype6-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
 COPY . .
 
-# Expose port (FastAPI default)
-EXPOSE 8000
-
-# Run the application
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Environment variables should be passed at runtime
+# CMD runs the Polling Bot
+CMD ["python", "run_bot.py"]

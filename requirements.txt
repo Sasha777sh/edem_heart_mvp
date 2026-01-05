@@ -3,3 +3,7 @@ uvicorn
 google-generativeai
 numpy
 pydantic
+Pillow
+aiogram
+googlesearch-python
+reportlab
