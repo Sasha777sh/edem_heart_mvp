@@ -22,7 +22,7 @@ dp = Dispatcher()
 # For now, I will use a placeholder or ask the user to run ngrok.
 # If user has a public URL, they should replace this.
 # Example: "https://<your-ngrok-id>.ngrok-free.app/shadow"
-WEB_APP_URL = "https://edemheart-l9kk4vrvp-moytelefonmsk-6183s-projects.vercel.app/shadow" 
+WEB_APP_URL = "https://Sasha777sh.github.io/edem_heart_mvp/frontend/shadow_reader.html" 
 
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
