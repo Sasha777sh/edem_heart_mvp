@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDEM Heart | Voice Resonance</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* --- VISUALIZER --- */
+        #sphere-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #core {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff 0%, #00aaff 100%);
+            box-shadow: 0 0 50px #00aaff;
+            z-index: 2;
+            transition: transform 0.1s ease-out, box-shadow 0.1s ease;
+        }
+
+        #aura {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 170, 255, 0.3);
+            transform: scale(0.5);
+            z-index: 1;
+            transition: all 0.2s ease;
+        }
+
+        /* --- HUD --- */
+        #hud {
+            margin-top: 40px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .metric {
+            font-size: 14px;
+            color: #888;
+            margin: 5px;
+        }
+
+        .value {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        #pulse-counter {
+            font-size: 24px;
+            color: #00ffaa;
+            text-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+            margin-bottom: 20px;
+        }
+
+        /* --- MIC CONTROL --- */
+        #mic-btn {
+            margin-top: 40px;
+            padding: 15px 30px;
+            font-size: 16px;
+            background: transparent;
+            color: #00aaff;
+            border: 1px solid #00aaff;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        #mic-btn:hover {
+            background: #00aaff;
+            color: #000;
+            box-shadow: 0 0 20px #00aaff;
+        }
+
+        #mic-btn.active {
+            background: #00aaff;
+            color: #000;
+            box-shadow: 0 0 20px #00aaff;
+            animation: breathe-btn 2s infinite;
+        }
+
+        @keyframes breathe-btn {
+            0% {
+                box-shadow: 0 0 20px #00aaff;
+            }
+
+            50% {
+                box-shadow: 0 0 40px #00aaff;
+            }
+
+            100% {
+                box-shadow: 0 0 20px #00aaff;
+            }
+        }
+
+        #instructions {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #555;
+            max-width: 300px;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sphere-container">
+        <div id="aura"></div>
+        <div id="core"></div>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud">
+        <div class="metric">ENERGY: <span id="energy-val" class="value">0.00</span></div>
+        <div class="metric">RES: <span id="res-val" class="value">0%</span></div>
+        <div class="metric">PULSE: <span id="pulse-val" class="value">0.0000</span></div>
+        <div class="metric" style="color: #ff3333;">HR: <span id="bpm-val" class="value">--</span></div>
+        <div class="metric">STATUS: <span id="status-val" class="value">CONNECT SENSOR</span></div>
+    </div>
+
+    <!-- BREATH VISUALIZER -->
+    <div id="breath-container"
+        style="position: absolute; left: 20px; bottom: 20px; width: 20px; height: 150px; background: rgba(255,255,255,0.1); border: 1px solid #555; border-radius: 10px; overflow: hidden;">
+        <div id="breath-bar"
+            style="width: 100%; height: 50%; background: #00aaff; position: absolute; bottom: 0; transition: height 0.1s;">
+        </div>
+        <div style="position: absolute; top: 0; width: 100%; text-align: center; font-size: 8px; color: #aaa;">IN</div>
+        <div style="position: absolute; bottom: 0; width: 100%; text-align: center; font-size: 8px; color: #aaa;">OUT
+        </div>
+    </div>
+
+    <div class="controls-row">
+        <button id="mic-btn">Microphone</button>
+        <button id="polar-btn">Connect Polar</button>
+    </div>
+    <div id="instructions">
+        <b>Mic Mode:</b> Breathe/Hum rhythmically.<br>
+        <b>Polar Mode:</b> Relax and align your breath (Heart Coherence).
+    </div>
+
+    <!-- CHAT INTERFACE -->
+    <div id="chat-container">
+        <!-- VOICE SELECTOR -->
+        <div id="voice-selector">
+            <button class="voice-btn active" data-voice="SHADOW">SHADOW</button>
+            <button class="voice-btn" data-voice="LIGHT">LIGHT</button>
+            <button class="voice-btn" data-voice="BODY">BODY</button>
+            <button class="voice-btn" data-voice="DESIRE">DESIRE</button>
+        </div>
+
+        <div id="chat-history">
+            <div class="chat-msg system">System: EDEM Brain Online. Select a Voice.</div>
+        </div>
+        <div id="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Speak to the Abyss..." autocomplete="off">
+            <button id="send-btn">SEND</button>
+        </div>
+    </div>
+
+    <style>
+        .controls-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        /* Chat Styles */
+        #chat-container {
+            margin-top: 20px;
+            width: 320px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        #voice-selector {
+            display: flex;
+            justify-content: space-around;
+            padding: 5px;
+            background: #111;
+            border-bottom: 1px solid #333;
+        }
+
+        .voice-btn {
+            background: transparent;
+            border: none;
+            color: #666;
+            font-size: 10px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .voice-btn:hover {
+            color: #fff;
+        }
+
+        .voice-btn.active {
+            background: #333;
+            color: #fff;
+            box-shadow: none;
+            animation: none;
+        }
+
+        /* Specific Active Colors */
+        .voice-btn.active[data-voice="SHADOW"] {
+            color: #ffaaaa;
+            border-bottom: 2px solid #ff3333;
+        }
+
+        .voice-btn.active[data-voice="LIGHT"] {
+            color: #ffffaa;
+            border-bottom: 2px solid #ffff55;
+        }
+
+        .voice-btn.active[data-voice="BODY"] {
+            color: #aaddff;
+            border-bottom: 2px solid #00aaff;
+        }
+
+        .voice-btn.active[data-voice="DESIRE"] {
+            color: #ffccaa;
+            border-bottom: 2px solid #ff8800;
+        }
+
+        #chat-history {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .chat-msg {
+            padding: 8px;
+            border-radius: 4px;
+            max-width: 90%;
+            line-height: 1.4;
+        }
+
+        .chat-msg.user {
+            align-self: flex-end;
+            background: #222;
+            color: #ccc;
+            border-radius: 8px 8px 0 8px;
+        }
+
+        .chat-msg.system {
+            align-self: center;
+            color: #555;
+            font-style: italic;
+            font-size: 10px;
+        }
+
+        .chat-msg.voice-SHADOW {
+            align-self: flex-start;
+            border-left: 3px solid #ff3333;
+            color: #ffdddd;
+            background: rgba(50, 0, 0, 0.4);
+        }
+
+        .chat-msg.voice-LIGHT {
+            align-self: flex-start;
+            border-left: 3px solid #ffff55;
+            color: #ffffdd;
+            background: rgba(50, 50, 0, 0.4);
+        }
+
+        .chat-msg.voice-BODY {
+            align-self: flex-start;
+            border-left: 3px solid #00aaff;
+            color: #ddffff;
+            background: rgba(0, 20, 50, 0.4);
+        }
+
+        .chat-msg.voice-DESIRE {
+            align-self: flex-start;
+            border-left: 3px solid #ff8800;
+            color: #ffeedd;
+            background: rgba(60, 30, 0, 0.4);
+        }
+
+        #chat-input-area {
+            display: flex;
+            border-top: 1px solid #333;
+            background: #000;
+        }
+
+        #chat-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            padding: 12px;
+            font-family: inherit;
+            outline: none;
+            font-size: 12px;
+        }
+
+        #send-btn {
+            background: #1a1a1a;
+            border: none;
+            color: #888;
+            padding: 0 15px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 10px;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        #send-btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        button {
+            /* Reset global button styles for voice-btn override */
+            padding: 15px 20px;
+            font-size: 14px;
+            background: transparent;
+            color: #00aaff;
+            border: 1px solid #00aaff;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #00aaff;
+            color: #000;
+            box-shadow: 0 0 20px #00aaff;
+        }
+
+        button.active {
+            background: #00aaff;
+            color: #000;
+            box-shadow: 0 0 20px #00aaff;
+            animation: breathe-btn 2s infinite;
+        }
+
+        @keyframes breathe-btn {
+            0% {
+                box-shadow: 0 0 10px #00aaff;
+            }
+
+            50% {
+                box-shadow: 0 0 25px #00aaff;
+            }
+
+            100% {
+                box-shadow: 0 0 10px #00aaff;
+            }
+        }
+
+        #instructions {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #555;
+            max-width: 300px;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+
+    <script>
+        const ws = new WebSocket("ws://localhost:8000/ws");
+
+        // --- UI ELEMENTS ---
+        const core = document.getElementById('core');
+        const aura = document.getElementById('aura');
+
+        const energyVal = document.getElementById('energy-val');
+        const resVal = document.getElementById('res-val');
+        const statusVal = document.getElementById('status-val');
+        const pulseVal = document.getElementById('pulse-val');
+        const bpmVal = document.getElementById('bpm-val'); // Added
+        const breathBar = document.getElementById('breath-bar'); // Added
+
+        const micBtn = document.getElementById('mic-btn');
+        const polarBtn = document.getElementById('polar-btn');
+
+        // --- AUDIO LOGIC ---
+        // ... (audio logic continues)
+        let audioContext;
+        let analyser;
+        let microphone;
+        let javascriptNode;
+        let isMicOn = false;
+
+        micBtn.addEventListener('click', async () => {
+            if (!isMicOn) {
+                try {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    analyser = audioContext.createAnalyser();
+                    javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
+
+                    analyser.smoothingTimeConstant = 0.8;
+                    analyser.fftSize = 1024;
+
+                    microphone.connect(analyser);
+                    analyser.connect(javascriptNode);
+                    javascriptNode.connect(audioContext.destination);
+
+                    javascriptNode.onaudioprocess = function () {
+                        const array = new Uint8Array(analyser.frequencyBinCount);
+                        analyser.getByteFrequencyData(array);
+
+                        let values = 0;
+                        for (let i = 0; i < array.length; i++) values += array[i];
+                        const average = values / array.length;
+                        const normalizedVol = average / 255;
+
+                        if (ws.readyState === WebSocket.OPEN) {
+                            ws.send(JSON.stringify({ signal: normalizedVol }));
+                        }
+                    }
+
+                    isMicOn = true;
+                    micBtn.innerText = "LISTENING...";
+                    micBtn.classList.add("active");
+                    statusVal.innerText = "WAITING FOR RHYTHM";
+
+                    // Disable Polar visual
+                    polarBtn.classList.remove('active');
+
+                } catch (err) {
+                    console.error('Error accessing microphone:', err);
+                    alert("Microphone access needed.");
+                }
+            }
+        });
+
+        // --- POLAR BLUETOOTH LOGIC ---
+        function handleHeartRateNotification(event) {
+            const value = event.target.value;
+            const flags = value.getUint8(0);
+            const rate16Bits = flags & 0x1;
+            let heartRate = rate16Bits ? value.getUint16(1, true) : value.getUint8(1);
+
+            // UPDATE UI INSTANTLY
+            const bpmVal = document.getElementById('bpm-val');
+            if (bpmVal) bpmVal.innerText = heartRate;
+
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({
+                    type: "biometric",
+                    source: "polar",
+                    bpm: heartRate
+                }));
+            }
+        }
+
+        polarBtn.addEventListener('click', async () => {
+            statusVal.innerText = "SEARCHING FOR POLAR...";
+            try {
+                const device = await navigator.bluetooth.requestDevice({
+                    filters: [{ services: ['heart_rate'] }],
+                    optionalServices: ['heart_rate']
+                });
+
+                statusVal.innerText = "CONNECTING to " + device.name + "...";
+                const server = await device.gatt.connect();
+                const service = await server.getPrimaryService('heart_rate');
+                const characteristic = await service.getCharacteristic('heart_rate_measurement');
+                await characteristic.startNotifications();
+
+                characteristic.addEventListener('characteristicvaluechanged', handleHeartRateNotification);
+
+                polarBtn.classList.add('active');
+                polarBtn.innerText = "POLAR LINKED";
+                micBtn.classList.remove('active');
+                micBtn.innerText = "Microphone";
+                isMicOn = false; // Reset mic
+                if (audioContext) audioContext.close();
+
+                console.log("Polar Connected!");
+            } catch (error) {
+                console.log(error);
+                statusVal.innerText = "BT ERR: " + error;
+            }
+        });
+
+        // --- CHAT LOGIC ---
+        let currentVoice = "SHADOW";
+        const voiceBtns = document.querySelectorAll('.voice-btn');
+
+        voiceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all
+                voiceBtns.forEach(b => b.classList.remove('active'));
+                // Add active to clicked
+                btn.classList.add('active');
+                currentVoice = btn.dataset.voice;
+
+                const sysMsg = document.createElement('div');
+                sysMsg.className = "chat-msg system";
+                sysMsg.innerText = `Switched to ${currentVoice} Channel`;
+                chatValues.history.appendChild(sysMsg);
+                chatValues.history.scrollTop = chatValues.history.scrollHeight;
+            });
+        });
+
+        const chatValues = {
+            input: document.getElementById('chat-input'),
+            btn: document.getElementById('send-btn'),
+            history: document.getElementById('chat-history')
+        };
+
+        function addMessage(text, type) {
+            const div = document.createElement('div');
+            div.className = `chat-msg ${type}`;
+            div.innerText = text;
+            chatValues.history.appendChild(div);
+            // Auto scroll
+            requestAnimationFrame(() => {
+                chatValues.history.scrollTop = chatValues.history.scrollHeight;
+            });
+        }
+
+        function sendChat() {
+            const text = chatValues.input.value.trim();
+            if (!text) return;
+
+            // Show user message
+            addMessage(text, "user");
+
+            // Send to backend with SELECTED VOICE
+            ws.send(JSON.stringify({
+                chat_message: text,
+                selected_voice: currentVoice
+            }));
+
+            chatValues.input.value = "";
+        }
+
+        chatValues.btn.addEventListener('click', sendChat);
+        chatValues.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendChat();
+        });
+
+        // --- CORE WEBSOCKET ---
+        class PulseMiner {
+            constructor() { this.balance = 0.0; this.streak = 0; }
+            calculateReward(coherence, energy) {
+                let baseReward = 0; let reason = "";
+                if (coherence > 0.9 && energy > 1.0) { baseReward = 0.005; reason = "PERFECT RESONANCE"; this.streak++; }
+                else if (coherence > 0.7 && energy > 0.5) { baseReward = 0.002; reason = "HIGH COHERENCE"; this.streak++; }
+                else if (coherence > 0.4) { baseReward = 0.001; reason = "ALIGNING..."; if (Math.random() > 0.9) this.streak = 0; }
+                else { this.streak = 0; reason = "CHAOS"; }
+
+                const multiplier = 1 + (Math.min(this.streak, 100) / 50);
+                const finalReward = baseReward * multiplier;
+                if (finalReward > 0) this.balance += finalReward;
+                return { reward: finalReward, reason, multiplier };
+            }
+        }
+
+        const miner = new PulseMiner();
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+
+            if (data.type === "chat_response") {
+                addMessage(data.text, `voice-${data.voice}`);
+                return;
+            }
+
+            // VISUALIZE BREATH WAVE
+            // debug_signal comes from backend (centered around 0).
+            // Map -2..+2 to 0%..100% height?
+            const visualSignal = data.debug_signal || 0;
+            // signal ~ +/- 1.0 usually
+            const heightPct = 50 + (visualSignal * 20); // Scale factor
+            const clamped = Math.max(0, Math.min(100, heightPct));
+            if (breathBar) breathBar.style.height = `${clamped}%`;
+
+            const mining = miner.calculateReward(data.metrics.R, data.energy);
+
+            energyVal.innerText = data.energy.toFixed(2);
+            resVal.innerText = (data.metrics.R * 100).toFixed(0) + "%";
+            pulseVal.innerText = miner.balance.toFixed(4);
+            statusVal.innerText = mining.reason + (mining.reward > 0 ? ` (x${mining.multiplier.toFixed(1)})` : "");
+
+            if (mining.reward > 0) {
+                statusVal.style.color = "#00ffaa";
+                pulseVal.style.color = "#00ffaa";
+            } else {
+                statusVal.style.color = "#888";
+                pulseVal.style.color = "#fff";
+            }
+
+            const baseScale = 0.8 + (data.energy * 0.2);
+            const breatheScale = 1 + (visualSignal * 0.1);
+            const scale = Math.max(0.2, baseScale * breatheScale);
+
+            core.style.transform = `scale(${scale})`;
+            const r = Math.floor(255 * (1 - data.metrics.R));
+            const g = Math.floor(100 + 155 * data.metrics.R);
+            const b = 255;
+            core.style.background = `radial-gradient(circle, #ffffff 0%, rgb(${r},${g},${b}) 100%)`;
+            core.style.boxShadow = `0 0 ${30 + data.energy * 20}px rgb(${r},${g},${b})`;
+            aura.style.transform = `scale(${1 + data.energy})`;
+            aura.style.borderColor = `rgba(${r}, ${g}, ${b}, ${0.1 + data.metrics.R * 0.4})`;
+        };
+
+        ws.onopen = () => { console.log("Connected to EDEM Heart Engine"); };
+        ws.onclose = () => { statusVal.innerText = "DISCONNECTED"; statusVal.style.color = "red"; };
+    </script>
+
+</body>
+
+</html>
