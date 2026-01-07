@@ -1,0 +1,114 @@
+{
+    "seo": {
+        "title": "Auditoria de Decisões: Dinheiro, Tempo, Controle | RENTGEN",
+        "description": "Revele riscos em contratos e acordos antes de perder dinheiro. Auditoria rápida com IA.",
+        "keywords": [
+            "risco financeiro",
+            "análise de contrato",
+            "cláusulas ocultas",
+            "auditoria de decisão",
+            "análise de acordo",
+            "scanner de risco",
+            "advogado ia"
+        ]
+    },
+    "hero": {
+        "badge": "Motor Ativo",
+        "title": "Verifique Riscos Financeiros<br />em Um Clique.",
+        "subtitle": "Descubra onde você perde dinheiro e controle antes de assinar ou pagar.<br/>Scan Rápido Grátis. Sem conselhos. Apenas riscos.",
+        "cta": "Iniciar Scan Grátis →"
+    },
+    "demo": {
+        "header": "RENTGEN / MODO_SCAN_RÁPIDO",
+        "user_label": "USUÁRIO:",
+        "user_text": "\"...multa de 0.5% por dia de atraso...\"<br/>Devo assinar este aluguel?",
+        "ai_label": "IA:",
+        "ai_header": "⚠️ RESULTADO DO SCAN:",
+        "risk_high": "🔴 ALTO RISCO",
+        "risk_text": "A penalidade excede a inflação anual (182%/ano).",
+        "asymmetry_label": "⚖️ ASSIMETRIA",
+        "asymmetry_text": "Rescisão unilateral não definida.",
+        "calculating": "...calculando perda potencial...",
+        "unlock": "[DESBLOQUEAR RELATÓRIO COMPLETO]",
+        "caption": "Isto é o que você recebe em 5 segundos"
+    },
+    "features": {
+        "title": "Onde Você Perde o Controle",
+        "contracts": {
+            "title": "📜 Contratos",
+            "highlight": "Multas Ocultas.",
+            "desc": "Encontramos cláusulas que te prendem em dívidas se algo der errado."
+        },
+        "purchases": {
+            "title": "💳 Compras",
+            "highlight": "Depósitos Não Reembolsáveis.",
+            "desc": "Verifique se você pode receber seu dinheiro de volta antes de pagar."
+        },
+        "jobs": {
+            "title": "💼 Empregos",
+            "highlight": "Condições de Escravidão.",
+            "desc": "Responsabilidade sem autoridade. KPIs tóxicos."
+        },
+        "decisions": {
+            "title": "🧠 Decisões",
+            "highlight": "Medo e Dúvida.",
+            "desc": "Pare de congelar. Obtenha um cálculo de risco e decida."
+        }
+    },
+    "paywall": {
+        "title": "O que acontece após o Scan Grátis?",
+        "money": {
+            "value": "$$$",
+            "desc": "Perda Financeira Exata"
+        },
+        "time": {
+            "value": "Tempo",
+            "desc": "Meses de tempo perdido"
+        },
+        "exit": {
+            "value": "Saída",
+            "desc": "Estratégia para sair seguro"
+        },
+        "link": "Desbloquear Relatório Completo no Bot →"
+    },
+    "login": {
+        "button": "Entrar com Telegram",
+        "sub": "Acesso instantâneo. Sem cadastro."
+    },
+    "calculator": {
+        "title": "Compare Você Mesmo",
+        "lawyer": {
+            "title": "ADVOGADO HUMANO",
+            "time": "2-5 dias",
+            "cost": "$100 +",
+            "result": "10 páginas de texto",
+            "icon": "⚖️"
+        },
+        "rentgen": {
+            "title": "RENTGEN",
+            "time": "5 segundos",
+            "cost": "$2",
+            "result": "1 veredito claro",
+            "icon": "⚡️"
+        }
+    },
+    "sticky_cta": "⚡️ Scan Agora (Grátis)",
+    "faq": {
+        "title": "Perguntas Frequentes",
+        "items": [
+            {
+                "q": "É seguro? Vocês guardam meus arquivos?",
+                "a": "Absolutamente. Não armazenamos seus documentos. O bot analisa o texto em tempo real e o esquece imediatamente após o relatório."
+            },
+            {
+                "q": "É melhor que um advogado?",
+                "a": "É mais rápido e mais barato. Use um advogado para o tribunal. Use o Rentgen *antes* de assinar para saber simplesmente: 'Estou sendo enganado?'"
+            },
+            {
+                "q": "É grátis?",
+                "a": "O Scan Rápido é gratuito. Você verá bandeiras vermelhas de risco. O relatório completo com cálculos detalhados de perdas tem um pequeno custo."
+            }
+        ]
+    },
+    "footer": "RENTGEN © 2026. Engenharia para a Realidade."
+}

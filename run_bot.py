@@ -1,336 +1,294 @@
 import asyncio
 import logging
-from aiogram import Bot, Dispatcher, types, F
-from aiogram.filters import Command
-from aiogram.types import WebAppInfo
 import sys
 import os
+from aiogram import Bot, Dispatcher, types, F
+from aiogram.filters import Command
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo, FSInputFile
+from backend.field_reader import FieldReader
 
-# Configuration
-API_TOKEN = '8133235026:AAH_YjBYERz9kLJjjKENR6YBWqWmAE8mx5c' # Provided by user
+# --- CONFIGURATION ---
+API_TOKEN = '8133235026:AAH_YjBYERz9kLJjjKENR6YBWqWmAE8mx5c' 
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-# Initialize bot and dispatcher
+# Initialize
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
+reader = FieldReader() # Connected to Real Gemini
 
-# --- WEB APP URL ---
-# IMPORTANT: Telegram Web Apps require HTTPS.
-# Since we are running locally on localhost:8000, we need a Tunnel (like ngrok).
-# For now, I will use a placeholder or ask the user to run ngrok.
-# If user has a public URL, they should replace this.
-# Example: "https://<your-ngrok-id>.ngrok-free.app/shadow"
-WEB_APP_URL = "https://shy-knives-hide.loca.lt/shadow" 
+# --- RED FLAG LOGIC ---
+
+# --- MODES ---
+user_modes = {} # user_id -> mode_name
+
+from backend.locales import LOCALES
+
+# ... imports ...
 
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
     """
-    Send a message with a button that opens the Web App.
+    Entry Point for All Micro-Apps (Localized).
     """
-    kb = [
-        [types.KeyboardButton(text="🔮 Включить Mini App", web_app=WebAppInfo(url=WEB_APP_URL))],
-        [
-            types.KeyboardButton(text="👁 Диалог"),
-            types.KeyboardButton(text="💼 Переговоры")
-        ],
-        [
-            types.KeyboardButton(text="⚔️ Market Scanner"),
-            types.KeyboardButton(text="👥 Кадры/HR")
-        ],
-        [
-            types.KeyboardButton(text="🛒 E-Com (WB/Ozon)")
-        ],
-        [
-            types.KeyboardButton(text="ℹ️ Режимы"),
-            types.KeyboardButton(text="❓ Зачем это?")
-        ]
-    ]
-    keyboard = types.ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
+    args = message.text.split(maxsplit=1)
+    payload = args[1] if len(args) > 1 else ""
     
-    await message.answer(
-        "👁 **Field Reader (Аналитик Поля)**\n\n"
-        "Я вижу то, что скрыто за словами.\n"
-        "Выбери режим ниже или просто перешли мне сообщение.\n\n"
-        "👇 **МЕНЮ УПРАВЛЕНИЯ** 👇",
-        reply_markup=keyboard,
-        parse_mode="Markdown"
-    )
+    # 🌍 Language Detection
+    user_lang = message.from_user.language_code or "en"
+    if "ru" in user_lang: 
+        lang = "ru"
+    else: 
+        lang = "en" # Default Global
 
-from backend.field_reader import FieldReader
-import json
-
-# Initialize Native Field Engine
-field_engine = FieldReader(api_key="AIzaSyAVcKK5KcpduBv2hh-uvMreDGvTHX-uURE")
-
-# User state storage (in-memory for MVP)
-user_modes = {}
-
-@dp.message(Command("mode"))
-async def cmd_mode(message: types.Message):
-    """
-    Select Analysis Mode.
-    """
-    kb = [
-        [
-            types.KeyboardButton(text="👁 Диалог"),
-            types.KeyboardButton(text="💼 Переговоры")
-        ],
-        [
-            types.KeyboardButton(text="⚔️ Market Scanner"),
-            types.KeyboardButton(text="👥 Кадры/HR")
-        ],
-        [
-            types.KeyboardButton(text="🛒 E-Com (WB/Ozon)")
-        ],
-        [
-            types.KeyboardButton(text="ℹ️ Режимы"),
-            types.KeyboardButton(text="❓ Зачем это?")
-        ]
-    ]
-    keyboard = types.ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
-    await message.answer("Выберите режим или справку:", reply_markup=keyboard)
-
-@dp.message(F.text == "ℹ️ Режимы")
-async def show_modes_info(message: types.Message):
-    # Mode 1: Communication
-    await message.answer_photo(
-        photo=types.FSInputFile("assets/mode_communication.png"),
-        caption="👁 **1. ДИАЛОГ (Communication)**\n\nАнализ личных переписок. Защита от манипуляций. Показывает скрытые мотивы и возвращает ответственность."
-    )
-    # Mode 2: Negotiation
-    await message.answer_photo(
-        photo=types.FSInputFile("assets/mode_negotiation.png"),
-        caption="💼 **2. ПЕРЕГОВОРЫ (Contract Analyst)**\n\nАнализ контрактов и офферов. Находит юридические риски, асимметрию прав и скрытые 'мины' в условиях."
-    )
-    # Mode 3: Market Scanner
-    await message.answer_photo(
-        photo=types.FSInputFile("assets/mode_competitor.png"),
-        caption="⚔️ **3. MARKET SCANNER (Аудит Рынка)**\n\nАнализ конкурентов. Находит структурные уязвимости рынка и рычаги для твоего роста. Просто кинь домен."
-    )
-    # Mode 4: E-Com
-    await message.answer_photo(
-        photo=types.FSInputFile("assets/mode_marketplace.png"),
-        caption="🛒 **4. E-COM AUDIT (WB/Ozon)**\n\nАнализ карточек товаров. Находит разрыв между обещаниями и отзывами. Показывает, как забрать трафик конкурента."
-    )
-
-@dp.message(F.text == "❓ Зачем это?")
-async def show_philosophy(message: types.Message):
-    text = (
-        "🌪 **ФИЛОСОФИЯ АНАЛИЗА**\n\n"
-        "Это дает тебе **свободу не играть в чужие игры**.\n\n"
-        "🔴 **КАК ЭТО БЫЛО РАНЬШЕ:**\n"
-        "1. Тебе пишут херню (манипуляцию).\n"
-        "2. Ты эмоционально реагируешь (злишься, оправдываешься).\n"
-        "3. Ты тратишь энергию, а собеседник «кормится» твоей реакцией.\n\n"
-        "🟢 **ЧТО ДАЕТ ЭТОТ ИНСТРУМЕНТ:**\n"
-        "1. **Дистанция**. Ты видишь механику: «Ага, это стратегия 'Жертва'». Тебя это больше не цепляет.\n"
-        "2. **Сохранение энергии**. Ты не вступаешь в бой, который не можешь выиграть.\n"
-        "3. **Ход конем**. Бот дает ответ, который ломает сценарий и возвращает ответственность агрессору.\n\n"
-        "🎯 **ЦЕЛЬ:**\n"
-        "Чтобы твой интеллект работал на ТВОИ задачи, а не обслуживал комплексы людей в интернете.\n"
-        "Это инструмент **гигиены внимания**."
-    )
+    # Detect Mode from Payload
+    mode = "red_flag" # Default
+    if payload in ["dream", "med", "paper", "reels"]:
+        mode = payload
+        
+    # Set State
+    user_modes[message.from_user.id] = mode
+    
+    # Get Localized Text
+    text = LOCALES[lang]["welcome"].get(mode, LOCALES[lang]["welcome"]["red_flag"])
+    
     await message.answer(text, parse_mode="Markdown")
 
-# --- HELPERS ---
+@dp.message(F.content_type.in_({'text', 'photo', 'document'}))
+async def handle_content(message: types.Message):
+    """
+    Universal Handler
+    """
+    user_id = message.from_user.id
+    mode = user_modes.get(user_id, "red_flag") # Default
 
-def get_mode_tip(mode: str) -> str:
-    tips = {
-        "communication": "💡 Совет: Перешли переписку или голосовое.",
-        "negotiation": "💡 Совет: Сфоткай первую страницу договора.",
-        "competitor": "💡 Совет: Напиши домен конкурента (пример: tbank.ru).",
-        "hr": "💡 Совет: Кинь скриншот резюме или вакансии.",
-        "marketplace": "💡 Совет: Кинь ссылку на товар или скриншот карточки."
-    }
-    return tips.get(mode, "")
+    # 1. VISCERAL LOADING (Build Value)
+    status_msg = await message.answer(f"⏳ **Очередь обработки: {mode}**...")
+    await bot.send_chat_action(message.chat.id, "typing")
+    await asyncio.sleep(1.0)
 
-async def fake_progress_bar(message: types.Message, text: str):
-    # Simple visual update to show "aliveness"
-    phases = ["🌑", "🌒", "🌓", "🌔", "🌕"]
-    for phase in phases:
-        await message.edit_text(f"{phase} {text}...")
-        await asyncio.sleep(0.3)
+    # Fake Step 1
+    await status_msg.edit_text("🧠 **Подключение к нейросети (Gemini 3)...**")
+    await asyncio.sleep(1.5)
 
-# --- HANDLERS ---
+    # Fake Step 2
+    if mode == "red_flag":
+        await status_msg.edit_text("🚩 **Сканирование паттернов манипуляции...**")
+    elif mode == "dream":
+        await status_msg.edit_text("🔮 **Поиск архетипов в базе Юнга...**")
+    elif mode == "med":
+        await status_msg.edit_text("🩸 **Сверка с медицинскими протоколами...**")
+    elif mode == "paper":
+        await status_msg.edit_text("⚖️ **Поиск статей ГК РФ...**")
+    await asyncio.sleep(1.5)
 
-@dp.message(F.text.in_({"👁 Диалог", "💼 Переговоры", "⚔️ Конкурент", "⚔️ Market Scanner", "👥 Кадры/HR", "🛒 E-Com (WB/Ozon)"}))
-async def set_mode(message: types.Message):
-    mode_map = {
-        "👁 Диалог": "communication",
-        "💼 Переговоры": "negotiation",
-        "⚔️ Market Scanner": "competitor",
-        "⚔️ Конкурент": "competitor",
-        "👥 Кадры/HR": "hr",
-        "🛒 E-Com (WB/Ozon)": "marketplace"
-    }
-    selected_mode = mode_map[message.text]
-    user_modes[message.from_user.id] = selected_mode
+    # Fake Step 3 (Drama)
+    await status_msg.edit_text("⚠️ **Обнаружены критические маркеры... Формирую отчет.**")
+    await asyncio.sleep(1.0)
     
-    tip = get_mode_tip(selected_mode)
+    text_content = ""
+    media_content = None
+    mime_type = None
+
+    # 1. DOWNLOAD CONTENT
+    try:
+        if message.text:
+            text_content = message.text
+        
+        elif message.photo:
+            # Get largest photo
+            file_id = message.photo[-1].file_id
+            media_content = reader.download_file(file_id, API_TOKEN)
+            mime_type = "image/jpeg"
+            text_content = message.caption or ""
+
+        elif message.document:
+            file_id = message.document.file_id
+            mime_type = message.document.mime_type
+            
+            # Allow PDF and Images
+            if mime_type in ["application/pdf", "image/jpeg", "image/png"]:
+                media_content = reader.download_file(file_id, API_TOKEN)
+                text_content = message.caption or ""
+            else:
+                await status_msg.edit_text("❌ Формат не поддерживается. Пришлите PDF или Картинку.")
+                return
+
+        # 2. CALL GEMINI
+        result = await reader.analyze_content(
+            text=text_content, 
+            media_content=media_content, 
+            mime_type=mime_type, 
+            mode=mode
+        )
+        
+        raw_response = result.get("raw_text", "Ошибка генерации.")
+        
+        # ADD PROGRESS BAR (UI Hack)
+        # We append this to the text to show "incompleteness"
+        progress_bar = "\n\n░░░░░░░░░░ [80% Готово]\n🔒 **Полный прогноз скрыт.**"
+        
+        final_text = raw_response + progress_bar
+
+        # 2.5 VOICE MODE (The Hook)
+        # We take the first 200 chars or summary for voice to avoid long wait
+        try:
+            # Simple heuristic: Split by newline, take first paragraph or up to 200 chars
+            voice_text = raw_response.split("\n")[0]
+            if len(voice_text) < 50: # If too short, take more
+                voice_text = raw_response[:200]
+            
+            # Clean up markdown for voice
+            voice_text_clean = voice_text.replace("*", "").replace("#", "").replace("🚩", "")
+            
+            await bot.send_chat_action(message.chat.id, "record_voice")
+            voice_path = await generate_voice(f"Послушай... {voice_text_clean}", folder="assets")
+            
+            voice_file = types.FSInputFile(voice_path)
+            await message.answer_voice(voice_file, caption="🎙 **Аудио-резюме (AI)**")
+            
+            # Cleanup later (optional, for now we keep assets or rely on OS to clean tmp)
+            # os.remove(voice_path) 
+        except Exception as e:
+            print(f"Voice Error: {e}") 
+            # Non-blocking error, just skip voice
+
+        # 2.5 VOICE MODE (The Hook)
+        # We take the first 200 chars-ish
+        try:
+            user_lang = message.from_user.language_code or "en"
+            lang = "ru" if "ru" in user_lang else "en"
+            
+            # Simple heuristic
+            voice_text = raw_response.split("\n")[0]
+            if len(voice_text) < 50: 
+                voice_text = raw_response[:200]
+            
+            # Clean up markdown
+            voice_text_clean = voice_text.replace("*", "").replace("#", "").replace("🚩", "")
+            
+            await bot.send_chat_action(message.chat.id, "record_voice")
+            
+            # Localized Intro
+            intro_word = LOCALES[lang]["voice_intro"]
+            voice_path = await generate_voice(f"{intro_word}... {voice_text_clean}", folder="assets")
+            
+            voice_file = types.FSInputFile(voice_path)
+            await message.answer_voice(voice_file, caption="🎙 **AI Summary**")
+            
+        except Exception as e:
+            print(f"Voice Error: {e}") 
+
+        # 3. PAY BUTTON (Custom for each mode & Lang)
+        btn_key = f"buy_{mode}"
+        # Fallback to red_flag if key missing
+        btn_text = LOCALES[lang]["buttons"].get(btn_key, LOCALES[lang]["buttons"]["buy_red_flag"]) 
+
+        keyboard = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text=btn_text, callback_data=f"buy_{mode}")]
+        ])
+
+        # Formatting Output
+        await status_msg.edit_text(final_text, parse_mode="Markdown", reply_markup=keyboard)
     
-    await message.answer(
-        f"✅ Режим установлен: **{message.text}**.\n{tip}",
-        reply_markup=types.ReplyKeyboardRemove(),
+    except Exception as e:
+        await status_msg.edit_text(f"⚠️ Ошибка: {str(e)}")
+
+# --- PAYMENT HANDLERS (TELEGRAM STARS) ---
+
+@dp.callback_query(F.data.startswith("buy_"))
+async def send_invoice(callback: types.CallbackQuery):
+    """
+    Sends an invoice for the selected service.
+    """
+    mode = callback.data.split("_")[1] # buy_dream -> dream
+    
+    prices = {
+        "red_flag": 50,  # 50 XTR
+        "dream": 25,     # 25 XTR
+        "med": 100,      # 100 XTR
+        "paper": 250     # 250 XTR
+    }
+    
+    titles = {
+        "red_flag": "🚩 Red Flag: Full Profile",
+        "dream": "🌙 Dream: Fate Forecast",
+        "med": "🩸 Med: Doctor Plan",
+        "paper": "📝 Paper: Legal Pack"
+    }
+
+    desc = "Полный отчет + прогноз + рекомендации."
+    price_amount = prices.get(mode, 50)
+    
+    await bot.send_invoice(
+        chat_id=callback.message.chat.id,
+        title=titles.get(mode, "Premium Report"),
+        description=desc,
+        payload=mode, # Store mode in payload to identify what to generate later
+        provider_token="", # EMPTY FOR STARS!
+        currency="XTR",
+        prices=[types.LabeledPrice(label="Premium Access", amount=price_amount)],
+        start_parameter="premium-buy"
+    )
+    await callback.answer()
+
+@dp.pre_checkout_query()
+async def process_pre_checkout_query(pre_checkout_query: types.PreCheckoutQuery):
+    """
+    Must confirm that we are ready to accept payment.
+    """
+    await bot.answer_pre_checkout_query(pre_checkout_query.id, ok=True)
+
+@dp.message(F.successful_payment)
+async def process_successful_payment(message: types.Message):
+    """
+    🎉 PAYMENT SUCCESS! UNLOCK THE DEEP REPORT.
+    """
+    mode = message.successful_payment.invoice_payload # "dream", "med"...
+    pmnt = message.successful_payment
+    
+    status_msg = await message.answer(
+        f"✅ **Оплата принята! ({pmnt.total_amount} ⭐️)**\n"
+        "Генерирую полный отчет..."
+    )
+
+    # RE-ANALYZE WITH PREMIUM PROMPT
+    # We need the content again. 
+    # HACK: For MVP, we don't have a database. 
+    # We will ask user to Forward content if it's lost, OR we rely on text prompt?
+    # BETTER: We just generate a generic expansion based on the mode + PREVIOUS CONTEXT?
+    # NO, we need content.
+    # SOLUTION: Use the 'Mock' logic for now or ask user to Reply? 
+    # Wait, the simplest way for MVP where we don't store files:
+    # Just ask user to RE-SEND the content, but this time it will trigger PREMIUM.
+    # OR: Just update user_modes to 'premium' and ask to resend.
+    
+    # Let's try to be smart. We can't access old messages easily.
+    # Let's update Mode to Premium and ask to Resend.
+    
+    premium_mode = f"{mode}_premium"
+    user_modes[message.from_user.id] = premium_mode
+    
+    await status_msg.edit_text(
+        "🔓 **PREMIUM РЕЖИМ АКТИВИРОВАН**\n\n"
+        "Теперь перешлите сообщение / фото / файл **ЕЩЕ РАЗ**.\n"
+        "Я прогоню его через Глубокий Анализ.",
         parse_mode="Markdown"
     )
 
-from backend.pdf_generator import generate_report_pdf
 
-def get_risk_level(analysis: dict) -> str:
-    # Basic heuristic: Red if many negative keywords, Green if positive, Yellow default
-    text = str(analysis).lower()
-    if "риск" in text or "цена ошибки" in text or "слепое место" in text:
-        return "🔴 HIGH RISK"
-    if "асимметрия" in text:
-        return "🟡 MEDIUM RISK"
-    return "🟢 LOW RISK" # Rare in this bot :)
-
-def format_response(analysis: dict, mode: str) -> str:
-    mode_titles = {
-        "communication": "АНАЛИЗ ДИАЛОГА",
-        "negotiation": "АНАЛИЗ ПЕРЕГОВОРОВ (CONTRACT)",
-        "competitor": "MARKET SCANNER (АУДИТ РЫНКА)",
-        "hr": "РИСК-АНАЛИЗ (HR)",
-        "marketplace": "E-COM AUDIT (ТОВАР)"
-    }
-    title = mode_titles.get(mode, "АНАЛИЗ")
-    risk_header = get_risk_level(analysis)
-    
-    footer = "\n\n__Generated by Field Reader AI__"
-    
-    content = ""
-    if mode in ["hr", "negotiation", "competitor", "marketplace"]:
-         content = (
-            f"📊 **{title}** | {risk_header}\n\n"
-            f"{analysis.get('behavior', 'No data')}\n\n"
-            f"{analysis.get('imposed_role', 'No data')}\n\n"
-            f"{analysis.get('hidden_motivation', 'No data')}\n\n"
-            f"{analysis.get('fear', 'No data')}\n\n"
-            f"{analysis.get('recommendation', 'No data')}"
-        )
-    else:
-        content = (
-            f"📊 **{title}** | {risk_header}\n\n"
-            f"🎭 **Суть/Роль**: {analysis.get('imposed_role', 'Не определена')}\n"
-            f"🧊 **Маркеры**: {analysis.get('behavior', 'No data')}\n\n"
-            f"🎯 **Скрытый мотив**: {analysis.get('hidden_motivation', 'No data')}\n"
-            f"😱 **Риск/Страх**: {analysis.get('fear', 'No data')}\n\n"
-            f"🛡 **Вердикт**: {analysis.get('recommendation', 'No data')}"
-        )
-    
-    return content + footer
-
-# Inline keyboard for actions
-def get_action_keyboard(analysis_id: str = "temp"):
-    # In a real app, we'd store analysis_id to retrieve data for PDF
-    kb = [
-        [
-            types.InlineKeyboardButton(text="📄 Скачать PDF", callback_data="get_pdf"),
-            types.InlineKeyboardButton(text="✍️ Ответ", callback_data="gen_reply")
-        ],
-        [types.InlineKeyboardButton(text="🗑 Скрыть отчет", callback_data="delete_msg")]
-    ]
-    return types.InlineKeyboardMarkup(inline_keyboard=kb)
-
-@dp.callback_query(F.data == "delete_msg")
-async def delete_message_handler(callback: types.CallbackQuery):
-    await callback.message.delete()
+@dp.callback_query(F.data == "buy_red_report")
+async def buy_report(callback: types.CallbackQuery):
+    await callback.message.answer("💳 **Включите VPN для оплаты (Demo).**")
     await callback.answer()
 
-@dp.callback_query(F.data == "get_pdf")
-async def get_pdf_handler(callback: types.CallbackQuery):
-    await callback.answer("⏳ Генерирую PDF...")
-    # For MVP, we reconstruct simple data from the message or context. 
-    # Since we don't have DB, we'll create a generic report for now.
-    # ideally we pass the analysis object.
-    
-    # Mock analysis for PDF generation based on current mode
-    pdf_buffer = generate_report_pdf(
-        {"behavior": "See chat history", "recommendation": "Consult Field Reader"}, 
-        "REPORT_EXPORT"
-    )
-    
-    file = types.BufferedInputFile(pdf_buffer.getvalue(), filename="FieldReader_Report.pdf")
-    await callback.message.answer_document(document=file, caption="✅ Ваш отчет готов.")
-
-@dp.callback_query(F.data == "gen_reply")
-async def gen_reply_handler(callback: types.CallbackQuery):
-    await callback.answer("Генерирую вариант ответа...")
-    await callback.message.answer("📝 **Рекомендуемый ответ:**\n\n'Мы готовы обсудить условия, но только после фиксации SLA и штрафов за просрочку.'\n\n(Скопируйте и отправьте)")
-
-@dp.message(F.text)
-async def analyze_message(message: types.Message):
-    """
-    Analyze any text sent to the bot.
-    """
-    if message.text == "/start" or message.text == "ℹ️ Режимы" or message.text == "❓ Зачем это?": return 
-
-    current_mode = user_modes.get(message.from_user.id, "communication")
-    
-    # IMPROVEMENT 1: Native typing action
-    await bot.send_chat_action(message.chat.id, action="typing")
-    
-    status_msg = await message.answer(f"🌑 Загрузка контекста ({current_mode})...")
-    
-    # IMPROVEMENT 2: Fake visual loader
-    asyncio.create_task(fake_progress_bar(status_msg, f"Анализ ({current_mode})"))
-
-    try:
-        analysis = field_engine.analyze_content(text=message.text, mode=current_mode)
-        
-        if "error" in analysis:
-            await status_msg.edit_text(f"Ошибка анализа: {analysis['error']}")
-            return
-
-        response_text = format_response(analysis, current_mode)
-        
-        # IMPROVEMENT 3: Inline Action Keyboard
-        await status_msg.edit_text(response_text, parse_mode="Markdown", reply_markup=get_action_keyboard())
-        
-    except Exception as e:
-        await status_msg.edit_text(f"Сбой системы: {e}")
-
-@dp.message(F.photo)
-async def analyze_photo(message: types.Message):
-    """
-    Analyze photos (Documents/Screenshots).
-    """
-    current_mode = user_modes.get(message.from_user.id, "communication")
-    
-    await bot.send_chat_action(message.chat.id, action="upload_photo")
-    status_msg = await message.answer(f"🌑 Сканирование документа ({current_mode})...")
-    
-    asyncio.create_task(fake_progress_bar(status_msg, "OCR Чтение"))
-
-    try:
-        # Download photo
-        photo = message.photo[-1]
-        file_io = io.BytesIO()
-        await bot.download(photo, destination=file_io)
-        file_io.seek(0)
-        image = Image.open(file_io)
-
-        # Analyze
-        analysis = field_engine.analyze_content(image_data=image, mode=current_mode)
-
-        if "error" in analysis:
-            await status_msg.edit_text(f"Ошибка анализа: {analysis['error']}")
-            return
-
-        response_text = format_response(analysis, current_mode)
-        await status_msg.edit_text(response_text, parse_mode="Markdown", reply_markup=get_action_keyboard())
-
-    except Exception as e:
-        await status_msg.edit_text(f"Сбой сканирования: {e}")
-
 async def main():
-    print("🤖 Field Reader Bot Started (Text + Vision)...")
+    print("🚩 RED FLAG BOT (REAL GEMINI) STARTED")
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
     try:
         asyncio.run(main())
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, SystemExit):
         print("Bot stopped")

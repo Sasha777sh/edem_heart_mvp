@@ -7,3 +7,8 @@ Pillow
 aiogram
 googlesearch-python
 reportlab
+duckduckgo-search
+requests
+aiohttp
+markdown
+edge-tts

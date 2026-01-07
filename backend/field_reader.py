@@ -1,185 +1,102 @@
 import google.generativeai as genai
 import json
 import os
-from enum import Enum
-from typing import Dict, Optional
-
-class ShadowStrategy(Enum):
-    JUSTIFIER = "Оправдывающийся"
-    FOOL = "Глупец"
-    AGGRESSOR = "Агрессор"
-    FOLLOWER = "Ведомый"
-    ACCUSED = "Обвиняемый"
-    STUDENT = "Ученик"
-    JUDGE = "Судья"
-    CHAOS = "Хаос"
-    VICTIM = "Жертва"
-    PROVOCATEUR = "Провокатор"
-    SKEPTIC = "Скептик"
-    PSEUDO_ALLY = "Псевдо-союзник"
+import io
+import requests
+from typing import Dict, Optional, Union
+from backend.prompts import (
+    COLD_SYSTEM_PROMPT, 
+    RED_FLAG_SYSTEM_PROMPT,
+    DREAM_SYSTEM_PROMPT,
+    MED_SYSTEM_PROMPT,
+    DREAM_SYSTEM_PROMPT,
+    MED_SYSTEM_PROMPT,
+    PAPER_SYSTEM_PROMPT,
+    RED_FLAG_PREMIUM_PROMPT,
+    DREAM_PREMIUM_PROMPT,
+    MED_PREMIUM_PROMPT,
+    PAPER_PREMIUM_PROMPT,
+    REELS_SYSTEM_PROMPT
+)
 
 class FieldReader:
     def __init__(self, api_key: str = None):
-        # Fallback to the key seen in other files if not provided (for development speed)
-        # In production, this should come from env.
-        self.api_key = api_key or "AIzaSyAVcKK5KcpduBv2hh-uvMreDGvTHX-uURE" 
+        # Fallback to key in env or default
+        self.api_key = api_key or os.getenv("GEMINI_API_KEY") or "AIzaSyAVcKK5KcpduBv2hh-uvMreDGvTHX-uURE" 
         genai.configure(api_key=self.api_key)
-        self.model = genai.GenerativeModel('gemini-2.0-flash')
+        self.model = genai.GenerativeModel('gemini-2.0-flash-exp') # FIXED: Bleeding Edge (User calls it Gemini 3)
 
-    PROMPTS = {
-        "communication": """
-Ты — SHADOW READER (Теневой Аналитик). Вскрывай скрытую динамику диалога.
-ТВОЯ ЦЕЛЬ: Понять, какую роль навязывают и чего добиваются.
-
-ФОРМАТ ВЫВОДА (JSON):
-{
-    "behavior": "ЧТО ОН ДЕЛАЕТ. (Например: 'Не спорит с фактами, а бьет на эмоции')",
-    "imposed_role": "КАКУЮ РОЛЬ НАВЯЗЫВАЕТ. (Например: 'Оправдывающийся', 'Спасатель')",
-    "hidden_motivation": "СКРЫТАЯ ВЫГОДА. (Например: 'Поднять самооценку за твой счет')",
-    "fear": "СКРЫТЫЙ СТРАХ.",
-    "recommendation": "СТРАТЕГИЯ ОТВЕТА (Игнор / Зеркало / Вскрытие)."
-}
-""",
-        "negotiation": """
-Ты — CONTRACT ANALYST (Аналитик Контракта).
-ТВОЯ ЦЕЛЬ: Найти риски в предложении или письме партнера/клиента.
-ТВОЯ ЗАДАЧА: Показать, где условия несимметричны и где скрыты убытки.
-
-ФОРМАТ ВЫВОДА (JSON):
-{
-    "behavior": "🔴 РИСК (Пример: 'Цена фиксирована, а объем работ плавающий')",
-    "imposed_role": "⚖️ АСИММЕТРИЯ (Пример: 'Предоплата 100%, но нет санкций за срыв сроков')",
-    "hidden_motivation": "🕳 СЛЕПОЕ МЕСТО (Что не прописано? Пример: 'Нет SLA и процедуры приемки')",
-    "fear": "💰 ДЕНЬГИ/РЕСУРС (Кто выигрывает? Пример: 'Выгодно заказчику, исполнителю — кассовый разрыв')",
-    "recommendation": "🎯 ВЕРДИКТ (Пример: 'Требовать фиксации объема или почасовую оплату')"
-}
-""",
-        "competitor": """
-Ты — MARKET AUDITOR (Аудитор Рынка).
-ТВОЯ ЦЕЛЬ: Найти структурные уязвимости в предложении конкурента.
-ТВОЯ ЗАДАЧА: Показать, где рынок "течет" и где есть рычаг для роста.
-
-ЗАПРЕЩЕНО:
-- Писать 'убить', 'уничтожить', 'мошенники'.
-- Оценивать намерения.
-
-ФОРМАТ ВЫВОДА (JSON):
-{
-    "behavior": "🔴 РИСК РЫНКА (Пример: 'Высокая цена при отсутствии гарантий результата')",
-    "imposed_role": "⚖️ АСИММЕТРИЯ (Пример: 'Клиент платит заранее, исполнитель не несет санкций')",
-    "hidden_motivation": "🕳 СЛЕПОЕ МЕСТО (Что упущено? Пример: 'Отсутствует SLA и критерии приемки')",
-    "fear": "▶️ РЫЧАГ РОСТА (Как забрать рынок? Пример: 'Ввести поэтапную оплату и публичные SLA')",
-    "recommendation": "🎯 РЫНОЧНЫЙ ВЫВОД (Пример: 'Сегмент чувствителен к прозрачности. Рынок не защищен.')"
-}
-""",
-        "marketplace": """
-Ты — E-COM AUDITOR (Аудитор Товара).
-ТВОЯ ЦЕЛЬ: Проанализировать карточку товара (WB/Ozon/Amazon).
-ТВОЯ ЗАДАЧА: Найти разрыв между "Ожиданием" (Контент) и "Реальностью" (Отзывы/Характеристики).
-
-ФОРМАТ ВЫВОДА (JSON):
-{
-    "behavior": "📸 VISUAL GAP (Визуал. Пример: 'На фото премиум, в отзывах жалуются на дешевый пластик')",
-    "imposed_role": "💬 REVIEW GAP (Боли. Пример: 'Все конкуренты имеют жалобу на молнию. Это шанс.')",
-    "hidden_motivation": "📉 SEO/OFFER (Просадка. Пример: 'Заголовок переспамлен, ключевые смыслы размыты')",
-    "fear": "💰 UNIT ECONOMICS (Гипотеза. Пример: 'Демпинг. Вероятно, работают в ноль ради отзыва.')",
-    "recommendation": "🚀 ТОЧКА ВХОДА (Что улучшить? Пример: 'Сделать инфографику с упором на прочность молнии')"
-}
-""",
-        "hr": """
-Ты — HR RISK CALCULATOR (Калькулятор Рисков Найма).
-ТВОЯ ЦЕЛЬ: Проанализировать резюме/ситуацию не как психолог, а как бизнес-партнер.
-ТВОЯ ЗАДАЧА: Найти несовпадение ожиданий, риски для бизнеса и цену ошибки.
-
-ЗАПРЕЩЕНО:
-- Писать про личность ("он ленивый", "он боится").
-- Давать психологические оценки.
-- Использовать эмоциональные термины.
-
-ФОРМАТ ВЫВОДА (JSON):
-{
-    "behavior": "🔴 РИСК (Несовпадение ожиданий по зоне ответственности. Пример: 'Кандидат эксперт, роль операционная')",
-    "imposed_role": "⚖️ АСИММЕТРИЯ (Где баланс нарушен? Пример: 'Компания ждет инициативу, в резюме — фокус на процесс')",
-    "hidden_motivation": "🕳 СЛЕПОЕ МЕСТО (Что не зафиксировано? Пример: 'Не ясны критерии результата через 90 дней')",
-    "fear": "💰 ЦЕНА ОШИБКИ (Стоимость найма + потеря темпа. Пример: '2-4 оклада + 2 месяца простоя')",
-    "recommendation": "❓ КЛЮЧЕВОЙ ВОПРОС (Один жесткий вопрос, чтобы вскрыть риск. Пример: 'Какие KPI считаются успешными через 3 месяца?')"
-}
-"""
-    }
-
-    def perform_live_search(self, query: str) -> str:
-        """
-        Performs a Google Search to get live context.
-        """
-        try:
-            from googlesearch import search
-            results = []
-            # Search for pricing, problems, and reviews
-            search_queries = [
-                f"site:{query} pricing cost",
-                f"{query} reviews problems scam",
-                f"{query} competitors alternatives"
-            ]
-            
-            context_data = "🔍 LIVE WEB SIGNAL (Найденная информация из Google):\n"
-            
-            for q in search_queries:
-                for result in search(q, num_results=2, advanced=True):
-                    context_data += f"- [{result.title}]({result.url}): {result.description}\n"
-            
-            return context_data
-        except ImportError:
-            return "⚠️ Google Search module not found."
-        except Exception as e:
-            return f"⚠️ Search Error: {e}"
-
-    def analyze_content(self, text: str = "", image_data = None, context: str = "", mode: str = "communication") -> dict:
-        """
-        Analyzes text OR image using the specified mode.
-        If text looks like a domain/company name and mode is 'competitor', performs auto-search.
-        """
-        user_context = context
+    def _get_prompt(self, mode: str) -> str:
+        # FACTORY MODES
+        if mode == "reels": return REELS_SYSTEM_PROMPT
         
-        # AUTO-WEB-SEARCH TRIGGER (Competitor + Marketplace)
-        if (mode == "competitor" or mode == "marketplace") and text and len(text.split()) < 3 and ("." in text or "http" in text):
-             print(f"📡 Detected Domain/Link: {text}. Scanning Web...")
-             web_context = self.perform_live_search(text)
-             user_context += f"\n\n{web_context}"
+        # PREMIUM MODES
+        if mode == "red_flag_premium": return RED_FLAG_PREMIUM_PROMPT
+        if mode == "dream_premium": return DREAM_PREMIUM_PROMPT
+        if mode == "med_premium": return MED_PREMIUM_PROMPT
+        if mode == "paper_premium": return PAPER_PREMIUM_PROMPT
 
-        system_prompt = self.PROMPTS.get(mode, self.PROMPTS["communication"])
+        # STANDARD MODES
+        if mode == "red_flag": return RED_FLAG_SYSTEM_PROMPT
+        if mode == "dream": return DREAM_SYSTEM_PROMPT
+        if mode == "med": return MED_SYSTEM_PROMPT
+        if mode == "paper": return PAPER_SYSTEM_PROMPT
+        if mode == "contract": return COLD_SYSTEM_PROMPT
         
-        full_prompt = [f"{system_prompt}\n\n"]
+        return COLD_SYSTEM_PROMPT # Default
+
+    def download_file(self, file_id: str, bot_token: str) -> bytes:
+        """
+        Downloads a file from Telegram by file_id.
+        """
+        # 1. Get File Path
+        get_file_url = f"https://api.telegram.org/bot{bot_token}/getFile?file_id={file_id}"
+        r = requests.get(get_file_url)
+        if r.status_code != 200:
+            raise Exception("Failed to get file info from Telegram")
         
-        if user_context:
-            full_prompt.append(f"КОНТЕКСТ:\n{user_context}\n\n")
-            
+        file_path = r.json()['result']['file_path']
+        
+        # 2. Download Content
+        download_url = f"https://api.telegram.org/file/bot{bot_token}/{file_path}"
+        file_content = requests.get(download_url).content
+        return file_content
+
+    async def analyze_content(self, text: str = "", media_content: bytes = None, mime_type: str = None, mode: str = "red_flag") -> dict:
+        """
+        Analyzes text OR media (image/pdf) using Gemini 1.5 Flash.
+        """
+        system_prompt = self._get_prompt(mode)
+        
+        content_parts = [system_prompt]
+        
         if text:
-            full_prompt.append(f"ВХОДНОЙ ТЕКСТ:\n{text}")
+            content_parts.append(f"ВХОДНОЙ ТЕКСТ:\n{text}")
             
-        if image_data:
-            full_prompt.append("ПРОАНАЛИЗИРУЙ ЭТО ИЗОБРАЖЕНИЕ (Скриншот переписки, договор или резюме). Используй OCR модели, чтобы прочитать весь текст.")
-            full_prompt.append(image_data)
+        if media_content and mime_type:
+            content_parts.append("ПРОАНАЛИЗИРУЙ ЭТОТ ФАЙЛ (Скриншот или Документ):")
+            # Create a Part object
+            cookie_picture = {
+                'mime_type': mime_type,
+                'data': media_content
+            }
+            content_parts.append(cookie_picture)
         
         try:
-            response = self.model.generate_content(full_prompt)
-            # Clean up response if it contains markdown code blocks
-            # ... (rest of logic)
-            clean_text = response.text.strip()
-            if clean_text.startswith("```json"):
-                clean_text = clean_text[7:]
-            if clean_text.endswith("```"):
-                clean_text = clean_text[:-3]
+            # Generate content
+            response = self.model.generate_content(content_parts)
             
-            return json.loads(clean_text)
+            # Simple Text Response (since prompts ask for formatted text, not always JSON)
+            # If we need structured JSON, we should enforce it in prompts, but user wants Design/Text.
+            # The prompts currently ask for a structured markdown report.
+            return {"raw_text": response.text}
             
         except Exception as e:
             return {
                 "error": str(e),
-                "fallback": "Анализ не удался. Связь с Полем прервана."
+                "raw_text": f"⚠️ **Ошибка анализа:** {str(e)}. Попробуйте отправить текст."
             }
 
 if __name__ == "__main__":
-    # Quick sanity check
     reader = FieldReader()
-    sample_text = "Ну и что ты этим хотел сказать? Я вообще не вижу тут логики, объясни нормально."
-    print(json.dumps(reader.analyze_text(sample_text), indent=2, ensure_ascii=False))
+    print("FieldReader Initialized.")

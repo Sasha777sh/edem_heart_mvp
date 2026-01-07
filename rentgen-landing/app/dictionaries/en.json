@@ -1,0 +1,114 @@
+{
+  "seo": {
+    "title": "Decision Audit: Money, Time, Control | RENTGEN",
+    "description": "Reveal risks in contracts and deals before you lose money. Fast, AI-powered decision audit.",
+    "keywords": [
+      "financial risk check",
+      "contract review",
+      "hidden clauses",
+      "decision audit",
+      "deal analysis",
+      "risk scanner",
+      "ai lawyer"
+    ]
+  },
+  "hero": {
+    "badge": "Engine Active",
+    "title": "Check Financial Risks<br />in One Click.",
+    "subtitle": "Find out where you lose money and control before you sign or pay.<br/>Free Fast Scan. No advice. Just risks.",
+    "cta": "Launch Free Scan →"
+  },
+  "demo": {
+    "header": "RENTGEN / FAST_SCAN_MODE",
+    "user_label": "USER:",
+    "user_text": "\"...penalty 0.5% per day for delay...\"<br/>Should I sign this lease?",
+    "ai_label": "AI:",
+    "ai_header": "⚠️ FAST SCAN RESULT:",
+    "risk_high": "🔴 HIGH RISK",
+    "risk_text": "Penalty exceeds annual inflation (182%/year).",
+    "asymmetry_label": "⚖️ ASYMMETRY",
+    "asymmetry_text": "Unilateral termination not defined.",
+    "calculating": "...calculating potential loss...",
+    "unlock": "[UNLOCK FULL REPORT]",
+    "caption": "This is what you get in 5 seconds"
+  },
+  "features": {
+    "title": "Where You Lose Control",
+    "contracts": {
+      "title": "📜 Contracts",
+      "highlight": "Hidden Penalties.",
+      "desc": "We find clauses that trap you in debt if things go wrong."
+    },
+    "purchases": {
+      "title": "💳 Purchases",
+      "highlight": "Non-refundable Deposits.",
+      "desc": "Check if you can get your money back before you pay."
+    },
+    "jobs": {
+      "title": "💼 Jobs",
+      "highlight": "Slavery Conditions.",
+      "desc": "Responsibility without authority. Toxic KPIs."
+    },
+    "decisions": {
+      "title": "🧠 Decisions",
+      "highlight": "Fear & Doubt.",
+      "desc": "Stop freezing. Get a risk calculation and decide."
+    }
+  },
+  "paywall": {
+    "title": "What happens after the Free Scan?",
+    "money": {
+      "value": "$$$",
+      "desc": "Exact Financial Loss"
+    },
+    "time": {
+      "value": "Time",
+      "desc": "Months of wasted time"
+    },
+    "exit": {
+      "value": "Exit",
+      "desc": "Strategy to leave safe"
+    },
+    "link": "Unlock Full Report in Bot →"
+  },
+  "login": {
+    "button": "Log in with Telegram",
+    "sub": "Instant access. No registration."
+  },
+  "calculator": {
+    "title": "Compare Yourself",
+    "lawyer": {
+      "title": "HUMAN LAWYER",
+      "time": "2-5 days",
+      "cost": "$100 +",
+      "result": "10 pages of text",
+      "icon": "⚖️"
+    },
+    "rentgen": {
+      "title": "RENTGEN",
+      "time": "5 seconds",
+      "cost": "$2",
+      "result": "1 clear verdict",
+      "icon": "⚡️"
+    }
+  },
+  "sticky_cta": "⚡️ Scan Now (Free)",
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "q": "Is it safe? Do you store my files?",
+        "a": "Absolutely. We do not store your documents. The bot analyzes text in real-time and forgets it immediately after the report."
+      },
+      {
+        "q": "Is it better than a lawyer?",
+        "a": "It's faster and cheaper. Use a lawyer for court. Use Rentgen *before* signing to simply know: 'Am I being scammed?'"
+      },
+      {
+        "q": "Is it free?",
+        "a": "Fast Scan is free. You will see red risk flags. The full report with detailed loss calculations costs a small fee."
+      }
+    ]
+  },
+  "footer": "RENTGEN © 2026. Engineered for Reality."
+}
