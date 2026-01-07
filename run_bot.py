@@ -53,7 +53,53 @@ async def cmd_start(message: types.Message):
     # Get Localized Text
     text = LOCALES[lang]["welcome"].get(mode, LOCALES[lang]["welcome"]["red_flag"])
     
-    await message.answer(text, parse_mode="Markdown")
+    # KEYBOARD (PERSISTENT)
+    kb = get_main_keyboard(lang)
+    
+    await message.answer(text, parse_mode="Markdown", reply_markup=kb)
+
+# --- MENU & LOGIC ---
+
+def get_main_keyboard(lang="en"):
+    """
+    Persistent Menu for easy navigation.
+    """
+    if lang == "ru":
+        buttons = [
+            [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Сонник")],
+            [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="📝 Юрист")],
+            [types.KeyboardButton(text="🎬 Reels")]
+        ]
+    else:
+        buttons = [
+            [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Dream")],
+            [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="📝 Law")],
+            [types.KeyboardButton(text="🎬 Reels")]
+        ]
+    return types.ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
+
+@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels"}))
+async def handle_menu_click(message: types.Message):
+    """
+    Switch Mode via Menu.
+    """
+    user_lang = message.from_user.language_code or "en"
+    lang = "ru" if "ru" in user_lang else "en"
+    
+    txt = message.text
+    mode = "red_flag"
+    
+    if "Dream" in txt or "Сонник" in txt: mode = "dream"
+    elif "Med" in txt: mode = "med"
+    elif "Law" in txt or "Юрист" in txt: mode = "paper"
+    elif "Reels" in txt: mode = "reels"
+    
+    user_modes[message.from_user.id] = mode
+    
+    # Send Welcome for New Mode
+    text = LOCALES[lang]["welcome"].get(mode, LOCALES[lang]["welcome"]["red_flag"])
+    await message.answer(text, parse_mode="Markdown", reply_markup=get_main_keyboard(lang))
+
 
 @dp.message(F.content_type.in_({'text', 'photo', 'document'}))
 async def handle_content(message: types.Message):
