@@ -12,7 +12,9 @@ from backend.prompts import (
     RED_FLAG_PREMIUM_PROMPT,
     DREAM_PREMIUM_PROMPT,
     MED_PREMIUM_PROMPT,
-    PAPER_PREMIUM_PROMPT
+    PAPER_PREMIUM_PROMPT,
+    PSYCHO_SYSTEM_PROMPT,
+    PSYCHO_PREMIUM_PROMPT
 )
 from backend.privacy import sanitize_personal_data, is_safe_to_send
 
@@ -32,12 +34,14 @@ class FieldReader:
         if mode == "dream_premium": return DREAM_PREMIUM_PROMPT
         if mode == "med_premium": return MED_PREMIUM_PROMPT
         if mode == "paper_premium": return PAPER_PREMIUM_PROMPT
+        if mode == "psycho_premium": return PSYCHO_PREMIUM_PROMPT
 
         # STANDARD MODES
         if mode == "red_flag": return RED_FLAG_SYSTEM_PROMPT
         if mode == "dream": return DREAM_SYSTEM_PROMPT
         if mode == "med": return MED_SYSTEM_PROMPT
         if mode == "paper": return PAPER_SYSTEM_PROMPT
+        if mode == "psycho": return PSYCHO_SYSTEM_PROMPT
         if mode == "contract": return COLD_SYSTEM_PROMPT
         
         return COLD_SYSTEM_PROMPT # Default

@@ -103,18 +103,18 @@ def get_main_keyboard(lang="en"):
     if lang == "ru":
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Сонник")],
-            [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="📝 Юрист")],
-            [types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
+            [types.KeyboardButton(text="📝 Юрист"), types.KeyboardButton(text="🎬 Reels")]
         ]
     else:
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Dream")],
-            [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="📝 Law")],
-            [types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
+            [types.KeyboardButton(text="📝 Law"), types.KeyboardButton(text="🎬 Reels")]
         ]
     return types.ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
 
-@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels"}))
+@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom"}))
 async def handle_menu_click(message: types.Message):
     """
     Switch Mode via Menu.
@@ -133,6 +133,8 @@ async def handle_menu_click(message: types.Message):
         mode = "paper"
     elif "Reels" in txt:
         mode = "reels"
+    elif "Psychosom" in txt:
+        mode = "psycho"
     elif "RedFlag" in txt:
         mode = "red_flag"
     else:
