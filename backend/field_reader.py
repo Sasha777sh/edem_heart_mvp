@@ -14,7 +14,9 @@ from backend.prompts import (
     MED_PREMIUM_PROMPT,
     PAPER_PREMIUM_PROMPT,
     PSYCHO_SYSTEM_PROMPT,
-    PSYCHO_PREMIUM_PROMPT
+    PSYCHO_PREMIUM_PROMPT,
+    PROMPT_SYSTEM_PROMPT,
+    PROMPT_PREMIUM_PROMPT
 )
 from backend.privacy import sanitize_personal_data, is_safe_to_send
 
@@ -35,6 +37,7 @@ class FieldReader:
         if mode == "med_premium": return MED_PREMIUM_PROMPT
         if mode == "paper_premium": return PAPER_PREMIUM_PROMPT
         if mode == "psycho_premium": return PSYCHO_PREMIUM_PROMPT
+        if mode == "prompts_premium": return PROMPT_PREMIUM_PROMPT
 
         # STANDARD MODES
         if mode == "red_flag": return RED_FLAG_SYSTEM_PROMPT
@@ -42,6 +45,7 @@ class FieldReader:
         if mode == "med": return MED_SYSTEM_PROMPT
         if mode == "paper": return PAPER_SYSTEM_PROMPT
         if mode == "psycho": return PSYCHO_SYSTEM_PROMPT
+        if mode == "prompts": return PROMPT_SYSTEM_PROMPT
         if mode == "contract": return COLD_SYSTEM_PROMPT
         
         return COLD_SYSTEM_PROMPT # Default

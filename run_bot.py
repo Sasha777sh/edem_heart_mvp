@@ -104,17 +104,19 @@ def get_main_keyboard(lang="en"):
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Сонник")],
             [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
-            [types.KeyboardButton(text="📝 Юрист"), types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="📝 Юрист")],
+            [types.KeyboardButton(text="🎬 Reels")]
         ]
     else:
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Dream")],
             [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
-            [types.KeyboardButton(text="📝 Law"), types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="📝 Law")],
+            [types.KeyboardButton(text="🎬 Reels")]
         ]
     return types.ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
 
-@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom"}))
+@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom", "📟 Prompts"}))
 async def handle_menu_click(message: types.Message):
     """
     Switch Mode via Menu.
@@ -135,6 +137,8 @@ async def handle_menu_click(message: types.Message):
         mode = "reels"
     elif "Psychosom" in txt:
         mode = "psycho"
+    elif "Prompts" in txt:
+        mode = "prompts"
     elif "RedFlag" in txt:
         mode = "red_flag"
     else:
@@ -440,14 +444,18 @@ async def process_payment(callback: types.CallbackQuery, mode: str):
         "red_flag": 50,
         "dream": 25,
         "med": 100,
-        "paper": 250
+        "paper": 250,
+        "psycho": 70,
+        "prompts": 30
     }
     
     titles = {
         "red_flag": "🚩 Red Flag: Full Profile",
         "dream": "🌙 Dream: Fate Forecast",
         "med": "🩸 Med: Doctor Plan",
-        "paper": "📝 Paper: Legal Pack"
+        "paper": "📝 Paper: Pre-trial Claim",
+        "psycho": "🧠 Psychosom: Root Cause",
+        "prompts": "📟 AI Prompt: Senior Pack"
     }
 
     desc = "Полный отчет + прогноз + рекомендации."
