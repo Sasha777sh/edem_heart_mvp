@@ -64,3 +64,43 @@ export const RED_FLAGS_RU = [
     { slug: "negging", name: "Неггинг", desc: "комплимент-оскорбление" },
     { slug: "stalking", name: "Сталкинг", desc: "слежка в соцсетях" }
 ];
+
+export const TARO_CARDS_RU = [
+    { slug: "shut", name: "Шут", meaning: "новое начало" },
+    { slug: "mag", name: "Маг", meaning: "воля и мастерство" },
+    { slug: "zhrica", name: "Жрица", meaning: "тайные знания" },
+    { slug: "imperatrica", name: "Императрица", meaning: "плодородие" },
+    { slug: "imperator", name: "Император", meaning: "власть и порядок" },
+    { slug: "zhrec", name: "Иерофант", meaning: "традиции" },
+    { slug: "vlublennye", name: "Влюбленные", meaning: "выбор пути" },
+    { slug: "kolesnica", name: "Колесница", meaning: "победа и движение" },
+    { slug: "sila", name: "Сила", meaning: "внутренняя энергия" },
+    { slug: "otsherlnik", name: "Отшельник", meaning: "поиск истины" },
+    { slug: "koleso-fortuny", name: "Колесо Фортуны", meaning: "судьба" },
+    { slug: "spravedlivost", name: "Справедливость", meaning: "закон кармы" },
+    { slug: "poveshenniy", name: "Повешенный", meaning: "жертва ради цели" },
+    { slug: "smert", name: "Смерть", meaning: "трансформация" },
+    { slug: "umerennost", name: "Умеренность", meaning: "баланс" },
+    { slug: "diavol", name: "Дьявол", meaning: "зависимость" },
+    { slug: "bashnya", name: "Башня", meaning: "разрушение старого" },
+    { slug: "zvezda", name: "Звезда", meaning: "надежда" },
+    { slug: "luna", name: "Луна", meaning: "иллюзии" },
+    { slug: "solnce", name: "Солнце", meaning: "счастье" },
+    { slug: "sud", name: "Страшный Суд", meaning: "возрождение" },
+    { slug: "mir", name: "Мир", meaning: "завершение цикла" }
+];
+
+export const ZODIAC_RU = [
+    { slug: "oven", name: "Овен" }, { slug: "telec", name: "Телец" }, { slug: "bliznecy", name: "Близнецы" },
+    { slug: "rak", name: "Рак" }, { slug: "lev", name: "Лев" }, { slug: "deva", name: "Дева" },
+    { slug: "vesy", name: "Весы" }, { slug: "scorpion", name: "Скорпион" }, { slug: "strelec", name: "Стрелец" },
+    { slug: "kozerog", name: "Козерог" }, { slug: "vodoley", name: "Водолей" }, { slug: "ryby", name: "Рыбы" }
+];
+
+export const CAREER_RU = [
+    { slug: "kak-prosit-povishenie", name: "Как просить повышение", target: "зарплата" },
+    { slug: "pochemu-ne-berut-na-rabotu", name: "Почему не берут на работу", target: "ошибки в резюме" },
+    { slug: "vignali-s-raboty", name: "Уволили с работы", target: "права работника" },
+    { slug: "toksichny-kollektiv", name: "Токсичный коллектив", target: "выживание в офисе" },
+    { slug: "kak-uvolitsya", name: "Как уволиться без отработки", target: "ТК РФ" }
+];
