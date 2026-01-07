@@ -8,7 +8,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from backend.field_reader import FieldReader
 from backend.database import (
     get_user, create_user, get_referral_stats, use_credit,
-    get_user_mode, set_user_mode, add_to_history, update_streak
+    get_user_mode, set_user_mode, add_to_history, get_user_history, update_streak
 )
 # No more in-memory dict - using database now
 from backend.voice import generate_voice
@@ -27,7 +27,7 @@ reader = FieldReader() # Connected to Real Gemini
 # --- RED FLAG LOGIC ---
 
 # --- MODES ---
-user_modes = {} # user_id -> mode_name
+# user_modes dictionary removed as we use database persistence
 
 from backend.locales import LOCALES
 
@@ -58,7 +58,7 @@ async def cmd_start(message: types.Message):
             referrer_id = int(payload.replace("ref_", ""))
         except:
             pass
-    elif payload in ["dream", "med", "paper", "reels"]:
+    elif payload in ["dream", "med", "paper", "reels", "psycho", "prompts"]:
         mode = payload
     
     # Create user if new
@@ -231,10 +231,18 @@ async def cmd_history(message: types.Message):
         
     text = "🗓 **Ваша история анализов:**\n\n"
     for item in history:
-        mode, preview, result, ts = item
-        text += f"🔹 **{mode.upper()}** ({ts})\n"
-        text += f"   *Вход:* {preview}...\n"
-        text += f"   *Итог:* {result}...\n\n"
+        m = item["mode"]
+        p = item["content"]
+        r = item["result"]
+        ts = item["date"]
+        # Format timestamp to be more readable
+        try:
+            ts = ts.split("T")[0]
+        except:
+            pass
+        text += f"🔹 **{m.upper()}** ({ts})\n"
+        text += f"   *Вход:* {p}...\n"
+        text += f"   *Итог:* {r}...\n\n"
         
     await message.answer(text, parse_mode="Markdown")
 
@@ -518,10 +526,7 @@ async def process_successful_payment(message: types.Message):
     )
 
 
-@dp.callback_query(F.data == "buy_red_report")
-async def buy_report(callback: types.CallbackQuery):
-    await callback.message.answer("💳 **Включите VPN для оплаты (Demo).**")
-    await callback.answer()
+# Removed dead callback handler
 
 async def main():
     print("🚩 RED FLAG BOT (REAL GEMINI) STARTED")

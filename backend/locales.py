@@ -29,14 +29,16 @@ LOCALES = {
             "paper": "📝 **PAPER KILLER**\n\nDescribe the issue. I'll write the complaint.",
             "reels": "🎬 **REELS FACTORY**\n\nGive me a topic -> Get a viral script.",
             "red_flag": "🚩 **RED FLAG SCANNER**\n\nSend chat screenshots. I'll detect manipulation.",
-            "psycho": "🧠 **PSYCHOSOMATICS**\n\nDescribe a symptom or disease. I'll find the emotional root."
+            "psycho": "🧠 **PSYCHOSOMATICS**\n\nDescribe a symptom or disease. I'll find the emotional root.",
+            "prompts": "📟 **PROMPT LIBRARY**\n\nGive me a task. I'll craft the perfect prompt for ChatGPT/MJ/Claude."
         },
         "buttons": {
             "buy_dream": "🔮 Full Report (25 ⭐️)",
             "buy_med": "🩸 Care Plan (100 ⭐️)",
             "buy_paper": "⚖️ Get Document (250 ⭐️)",
             "buy_red_flag": "🔓 Unlock (50 ⭐️)",
-            "buy_psycho": "🧠 Find Root Cause (70 ⭐️)"
+            "buy_psycho": "🧠 Find Root Cause (70 ⭐️)",
+            "buy_prompts": "📟 Perfect Prompt (30 ⭐️)"
         },
         "voice_intro": "Listen..."
     }

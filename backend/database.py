@@ -51,6 +51,23 @@ def init_db():
             FOREIGN KEY (user_id) REFERENCES users(user_id)
         )
     ''')
+
+    # --- AUTO MIGRATION (Ensuring columns exist) ---
+    columns_to_add = [
+        ("current_mode", "TEXT DEFAULT 'red_flag'"),
+        ("last_active_at", "TEXT"),
+        ("streak_count", "INTEGER DEFAULT 0"),
+        ("joined_at", "TEXT"),
+        ("referred_by", "INTEGER"),
+        ("referral_count", "INTEGER DEFAULT 0"),
+        ("credits", "INTEGER DEFAULT 0")
+    ]
+    
+    for col_name, col_type in columns_to_add:
+        try:
+            cursor.execute(f"ALTER TABLE users ADD COLUMN {col_name} {col_type}")
+        except sqlite3.OperationalError:
+            pass # Column already exists
     
     conn.commit()
     conn.close()
