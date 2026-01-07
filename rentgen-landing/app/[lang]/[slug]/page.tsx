@@ -36,6 +36,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: "en
         description: pageData.desc,
         alternates: {
             canonical: `https://rentgen.chatedem.com/${lang}/${slug}`,
+        },
+        other: {
+            'application-name': 'RENTGEN AI',
+            'author': 'RENTGEN AI Team'
         }
     };
 }
@@ -96,6 +100,34 @@ export default async function SeoPage({ params }: { params: Promise<{ lang: "en"
 
     return (
         <main className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-white selection:text-black">
+
+            {/* Schema.org for AI Engines */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": {
+                            "@type": "Question",
+                            "name": pageData.title,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": pageData.desc + " Используйте RENTGEN AI для мгновенной проверки."
+                            }
+                        },
+                        "author": {
+                            "@type": "Organization",
+                            "name": "RENTGEN AI",
+                            "url": "https://rentgen.chatedem.com"
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "RENTGEN AI"
+                        }
+                    })
+                }}
+            />
 
             {/* GLOBAL UI ELEMENTS */}
             <LanguageSwitcher />
