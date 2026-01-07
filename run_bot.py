@@ -6,6 +6,8 @@ from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo, FSInputFile
 from backend.field_reader import FieldReader
+from backend.database import create_user, get_user, get_referral_stats, use_credit
+from backend.voice import generate_voice
 
 # --- CONFIGURATION ---
 API_TOKEN = '8133235026:AAH_YjBYERz9kLJjjKENR6YBWqWmAE8mx5c' 
@@ -30,7 +32,7 @@ from backend.locales import LOCALES
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
     """
-    Entry Point for All Micro-Apps (Localized).
+    Entry Point for All Micro-Apps (Localized + Referral Tracking).
     """
     args = message.text.split(maxsplit=1)
     payload = args[1] if len(args) > 1 else ""
@@ -42,10 +44,40 @@ async def cmd_start(message: types.Message):
     else: 
         lang = "en" # Default Global
 
-    # Detect Mode from Payload
+    # 👥 REFERRAL TRACKING
+    referrer_id = None
     mode = "red_flag" # Default
-    if payload in ["dream", "med", "paper", "reels"]:
+    
+    if payload.startswith("ref_"):
+        # Extract referrer ID
+        try:
+            referrer_id = int(payload.replace("ref_", ""))
+        except:
+            pass
+    elif payload in ["dream", "med", "paper", "reels"]:
         mode = payload
+    
+    # Create user if new
+    user_id = message.from_user.id
+    username = message.from_user.username or ""
+    first_name = message.from_user.first_name or "User"
+    
+    is_new = create_user(user_id, username, first_name, referrer_id)
+    
+    # If someone just referred this person, notify the referrer
+    if is_new and referrer_id:
+        stats = get_referral_stats(referrer_id)
+        refs = stats["referrals"]
+        credits = stats["credits"]
+        
+        notify_text = f"🎉 +1 Реферал!\n\nВсего: {refs}\nКредиты: {credits}"
+        if refs % 3 == 0:
+            notify_text += f"\n\n🔓 Новый кредит разблокирован! Используй /premium для бесплатного прогона."
+        
+        try:
+            await bot.send_message(referrer_id, notify_text)
+        except:
+            pass  # User might have blocked bot
         
     # Set State
     user_modes[message.from_user.id] = mode
@@ -99,6 +131,68 @@ async def handle_menu_click(message: types.Message):
     # Send Welcome for New Mode
     text = LOCALES[lang]["welcome"].get(mode, LOCALES[lang]["welcome"]["red_flag"])
     await message.answer(text, parse_mode="Markdown", reply_markup=get_main_keyboard(lang))
+
+@dp.message(Command("invite"))
+async def cmd_invite(message: types.Message):
+    """
+    Show user their referral link and stats.
+    """
+    user_id = message.from_user.id
+    user_lang = message.from_user.language_code or "en"
+    lang = "ru" if "ru" in user_lang else "en"
+    
+    # Ensure user exists
+    if not get_user(user_id):
+        create_user(user_id, message.from_user.username or "", message.from_user.first_name or "User")
+    
+    stats = get_referral_stats(user_id)
+    refs = stats["referrals"]
+    credits = stats["credits"]
+    
+    # Generate referral link
+    bot_username = (await bot.get_me()).username
+    ref_link = f"https://t.me/{bot_username}?start=ref_{user_id}"
+    
+    if lang == "ru":
+        text = f"""🎁 **РЕФЕРАЛЬНАЯ ПРОГРАММА**
+
+Приглашай друзей и получай **бесплатные прогоны**!
+
+📊 **Твоя статистика:**
+• Приглашено: {refs}
+• Кредиты: {credits} 🎫
+
+🔗 **Твоя ссылка:**
+`{ref_link}`
+
+💡 **Как работает:**
+• Приглашай друзей через свою ссылку
+• За каждые 3 реферала = 1 кредит
+• 1 кредит = 1 бесплатный Deep-анализ
+
+Отправь материал и используй кредит вместо оплаты!
+"""
+    else:
+        text = f"""🎁 **REFERRAL PROGRAM**
+
+Invite friends and get **free analyses**!
+
+📊 **Your stats:**
+• Invited: {refs}
+• Credits: {credits} 🎫
+
+🔗 **Your link:**
+`{ref_link}`
+
+💡 **How it works:**
+• Invite friends via your link
+• Every 3 referrals = 1 credit
+• 1 credit = 1 free Deep analysis
+
+Send content and use credit instead of paying!
+"""
+    
+    await message.answer(text, parse_mode="Markdown")
 
 
 @dp.message(F.content_type.in_({'text', 'photo', 'document'}))
@@ -246,15 +340,72 @@ async def handle_content(message: types.Message):
 @dp.callback_query(F.data.startswith("buy_"))
 async def send_invoice(callback: types.CallbackQuery):
     """
-    Sends an invoice for the selected service.
+    Sends an invoice or offers credit option.
     """
     mode = callback.data.split("_")[1] # buy_dream -> dream
+    user_id = callback.from_user.id
     
+    # Check if user has credits
+    stats = get_referral_stats(user_id)
+    credits = stats["credits"]
+    
+    if credits > 0:
+        # Show choice: Credit or Pay
+        keyboard = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="🎫 Использовать кредит (FREE)", callback_data=f"credit_{mode}")],
+            [InlineKeyboardButton(text="💳 Оплатить Stars", callback_data=f"pay_{mode}")]
+        ])
+        await callback.message.answer(
+            f"💎 **У тебя {credits} кредит(ов)!**\n\nВыбери:",
+            reply_markup=keyboard
+        )
+        await callback.answer()
+        return
+    
+    # No credits, proceed to payment
+    await process_payment(callback, mode)
+
+@dp.callback_query(F.data.startswith("credit_"))
+async def use_credit_callback(callback: types.CallbackQuery):
+    """
+    Use credit for premium analysis.
+    """
+    mode = callback.data.split("_")[1]
+    user_id = callback.from_user.id
+    
+    if use_credit(user_id):
+        # Activate premium mode
+        premium_mode = f"{mode}_premium"
+        user_modes[user_id] = premium_mode
+        
+        await callback.message.answer(
+            "🔓 **PREMIUM АКТИВИРОВАН (Кредит использован)**\n\n"
+            "Теперь перешли сообщение / фото / файл **ЕЩЕ РАЗ**.\n"
+            "Я прогоню его через Глубокий Анализ.",
+            parse_mode="Markdown"
+        )
+    else:
+        await callback.message.answer("⚠️ Недостаточно кредитов.")
+    
+    await callback.answer()
+
+@dp.callback_query(F.data.startswith("pay_"))
+async def pay_with_stars(callback: types.CallbackQuery):
+    """
+    Proceed to Stars payment.
+    """
+    mode = callback.data.split("_")[1]
+    await process_payment(callback, mode)
+
+async def process_payment(callback: types.CallbackQuery, mode: str):
+    """
+    Send Stars invoice.
+    """
     prices = {
-        "red_flag": 50,  # 50 XTR
-        "dream": 25,     # 25 XTR
-        "med": 100,      # 100 XTR
-        "paper": 250     # 250 XTR
+        "red_flag": 50,
+        "dream": 25,
+        "med": 100,
+        "paper": 250
     }
     
     titles = {
@@ -271,8 +422,8 @@ async def send_invoice(callback: types.CallbackQuery):
         chat_id=callback.message.chat.id,
         title=titles.get(mode, "Premium Report"),
         description=desc,
-        payload=mode, # Store mode in payload to identify what to generate later
-        provider_token="", # EMPTY FOR STARS!
+        payload=mode,
+        provider_token="",
         currency="XTR",
         prices=[types.LabeledPrice(label="Premium Access", amount=price_amount)],
         start_parameter="premium-buy"
