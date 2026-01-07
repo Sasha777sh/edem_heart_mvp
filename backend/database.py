@@ -36,6 +36,19 @@ def init_db():
         )
     ''')
     
+    # History tracking
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
+            mode TEXT,
+            content_preview TEXT,
+            result_preview TEXT,
+            created_at TEXT,
+            FOREIGN KEY (user_id) REFERENCES users(user_id)
+        )
+    ''')
+    
     conn.commit()
     conn.close()
 
@@ -117,6 +130,46 @@ def use_credit(user_id):
     conn.commit()
     conn.close()
     return affected > 0
+
+def add_to_history(user_id, mode, content_preview, result_preview):
+    """Add analysis to user's history."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        INSERT INTO history (user_id, mode, content_preview, result_preview, created_at)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (user_id, mode, content_preview[:200], result_preview[:500], datetime.now().isoformat()))
+    
+    conn.commit()
+    conn.close()
+
+def get_user_history(user_id, limit=5):
+    """Get user's recent analyses."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        SELECT mode, content_preview, result_preview, created_at 
+        FROM history 
+        WHERE user_id = ?
+        ORDER BY created_at DESC
+        LIMIT ?
+    ''', (user_id, limit))
+    
+    results = cursor.fetchall()
+    conn.close()
+    
+    history = []
+    for row in results:
+        history.append({
+            "mode": row[0],
+            "content": row[1],
+            "result": row[2],
+            "date": row[3]
+        })
+    
+    return history
 
 # Initialize on import
 init_db()

@@ -1,23 +1,20 @@
 import google.generativeai as genai
-import json
 import os
-import io
 import requests
 from typing import Dict, Optional, Union
 from backend.prompts import (
-    COLD_SYSTEM_PROMPT, 
+    COLD_SYSTEM_PROMPT,
     RED_FLAG_SYSTEM_PROMPT,
     DREAM_SYSTEM_PROMPT,
     MED_SYSTEM_PROMPT,
-    DREAM_SYSTEM_PROMPT,
-    MED_SYSTEM_PROMPT,
     PAPER_SYSTEM_PROMPT,
+    REELS_SYSTEM_PROMPT,
     RED_FLAG_PREMIUM_PROMPT,
     DREAM_PREMIUM_PROMPT,
     MED_PREMIUM_PROMPT,
-    PAPER_PREMIUM_PROMPT,
-    REELS_SYSTEM_PROMPT
+    PAPER_PREMIUM_PROMPT
 )
+from backend.privacy import sanitize_personal_data, is_safe_to_send
 
 class FieldReader:
     def __init__(self, api_key: str = None):
@@ -71,7 +68,13 @@ class FieldReader:
         content_parts = [system_prompt]
         
         if text:
-            content_parts.append(f"ВХОДНОЙ ТЕКСТ:\n{text}")
+            # Sanitize personal data before sending to AI
+            safe, reason = is_safe_to_send(text)
+            if not safe:
+                print(f"⚠️ Privacy Warning: {reason}")
+            
+            sanitized_text = sanitize_personal_data(text)
+            content_parts.append(f"ВХОДНОЙ ТЕКСТ:\n{sanitized_text}")
             
         if media_content and mime_type:
             content_parts.append("ПРОАНАЛИЗИРУЙ ЭТОТ ФАЙЛ (Скриншот или Документ):")
