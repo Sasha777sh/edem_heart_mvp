@@ -21,7 +21,9 @@ def init_db():
             referred_by INTEGER,
             referral_count INTEGER DEFAULT 0,
             credits INTEGER DEFAULT 0,
-            current_mode TEXT DEFAULT 'red_flag'
+            current_mode TEXT DEFAULT 'red_flag',
+            last_active_at TEXT,
+            streak_count INTEGER DEFAULT 0
         )
     ''')
     
@@ -191,6 +193,55 @@ def set_user_mode(user_id, mode):
     ''', (mode, user_id))
     conn.commit()
     conn.close()
+
+from datetime import datetime, timedelta
+
+def update_streak(user_id):
+    """Update user streak and return (count, reward_given)."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT last_active_at, streak_count, credits FROM users WHERE user_id = ?", (user_id,))
+    result = cursor.fetchone()
+    if not result:
+        conn.close()
+        return 0, False
+        
+    last_active, count, credits = result
+    today = datetime.now().date()
+    
+    reward_given = False
+    new_count = count
+    
+    if last_active:
+        last_date = datetime.strptime(last_active, '%Y-%m-%d').date()
+        if last_date == today:
+            # Already checked today
+            conn.close()
+            return count, False
+        elif last_date == today - timedelta(days=1):
+            # Continued streak
+            new_count += 1
+            if new_count % 7 == 0:
+                # Reward every 7 days
+                cursor.execute("UPDATE users SET credits = credits + 1 WHERE user_id = ?", (user_id,))
+                reward_given = True
+        else:
+            # Streak broken
+            new_count = 1
+    else:
+        # First time
+        new_count = 1
+        
+    cursor.execute('''
+        UPDATE users 
+        SET last_active_at = ?, streak_count = ?
+        WHERE user_id = ?
+    ''', (today.strftime('%Y-%m-%d'), new_count, user_id))
+    
+    conn.commit()
+    conn.close()
+    return new_count, reward_given
 
 # Initialize on import
 init_db()

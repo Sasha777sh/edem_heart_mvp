@@ -163,3 +163,12 @@ export const PSYCHO_RU = [
     { slug: "astma", name: "Астма", cause: "подавленный плач, удушающая любовь" },
     { slug: "migren", name: "Мигрень", cause: "перфекционизм, подавленная злость" }
 ];
+
+export const AUTO_RU = [
+    { slug: "stuk-v-dvigatele", name: "Стук в двигателе", symptom: "износ вкладышей или клапанов" },
+    { slug: "горит-check-engine", name: "Горит Check Engine", symptom: "ошибка датчика или системы впрыска" },
+    { slug: "korobka-pinaetsya", name: "АКПП пинается", symptom: "низкий уровень масла или соленоиды" },
+    { slug: "dym-iz-truby", name: "Белый дым из трубы", symptom: "антифриз в цилиндрах" },
+    { slug: "cherniy-dym", name: "Черный дым", symptom: "переобогащенная смесь" },
+    { slug: "vibracia-na-skorosti", name: "Вибрация на руле", symptom: "кривые диски или балансировка" }
+];

@@ -155,6 +155,33 @@ DISCLAIMER В НАЧАЛЕ: "Это информация для ознакомл
 
 Стиль: эмпатичный, профессиональный.
 Формат: markdown`;
+    } else if (params.auto) {
+        prompt = `Напиши статью об автодиагностике на 600 слов:
+
+Тема: Проблема "${params.auto}" у автомобиля в городе ${city || 'России'}
+
+ВАЖНО: Формат для ПРАКТИЧЕСКОЙ помощи.
+
+**Вопрос:** Что делать, если ${params.auto.toLowerCase()}?
+
+**Ответ:**
+Это может быть связано с [назови 2-3 тех. причины]. В ${city || 'вашем городе'} часто встречаются такие поломки из-за [климат/дороги].
+
+**Топ-3 причины:**
+1. [Причина 1] — Цена ремонта: [вилка цен]
+2. [Причина 2]
+3. [Причина 3]
+
+**Как проверить самому:**
+- Проверьте уровень масла
+- Посмотрите на [деталь]
+- Послушайте [звук]
+
+**Где чиниться в ${city || 'вашем городе'}:**
+Советы по выбору сервиса. 
+
+Стиль: мужской, технический, надежный.
+Формат: markdown`;
     } else {
         // Default generic content
         prompt = `Напиши короткую SEO-статью на 300 слов о проверке документов и отношений с помощью AI. Стиль: практический.`;
@@ -204,6 +231,9 @@ export async function generatePageContent(slug: string, pageData: any): Promise<
         params.redFlag = pageData.title || 'red flag';
     } else if (slug.includes('psihosomatika-')) {
         params.psycho = pageData.title?.replace('Психосоматика: ', '').split('.')[0] || 'симптом';
+    } else if (slug.includes('auto-')) {
+        params.auto = pageData.title?.split(' в г. ')[0] || 'поломка';
+        params.city = slug.split('-').pop();
     }
 
     return await generateSEOContent(params);

@@ -1,4 +1,4 @@
-import { CITIES_RU, CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, TARO_CARDS_RU, ZODIAC_RU, CAREER_RU, PSYCHO_RU } from './seoData';
+import { CITIES_RU, CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, TARO_CARDS_RU, ZODIAC_RU, CAREER_RU, PSYCHO_RU, AUTO_RU } from './seoData';
 
 export type SeoPage = {
     slug: string;
@@ -129,6 +129,20 @@ function generatePages(): SeoPage[] {
             desc: `Узнайте, какая эмоция вызывает симптом "${p.name}". Вероятная причина: ${p.cause}. Полная расшифровка связи тела и психики.`,
             category: "Психосоматика",
             startParam: "psycho"
+        });
+    });
+
+    // 9. AUTO (The Scale Step)
+    AUTO_RU.forEach(a => {
+        CITIES_RU.slice(0, 10).forEach(city => { // Only top 10 cities for now to keep build fast
+            pages.push({
+                slug: `auto-${a.slug}-${translit(city)}`,
+                title: `${a.name} в г. ${city}: диагностика и причины | RENTGEN`,
+                h1: `Что делать если ${a.name.toLowerCase()} (${city})`,
+                desc: `Диагностика авто в ${city}. Если ${a.name.toLowerCase()}, вероятная причина: ${a.symptom}. Загрузи фото или опиши звук для AI-анализа.`,
+                category: "Авто",
+                startParam: "paper"
+            });
         });
     });
 

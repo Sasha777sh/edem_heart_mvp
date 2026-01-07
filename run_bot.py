@@ -8,7 +8,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from backend.field_reader import FieldReader
 from backend.database import (
     get_user, create_user, get_referral_stats, use_credit,
-    get_user_mode, set_user_mode, add_to_history
+    get_user_mode, set_user_mode, add_to_history, update_streak
 )
 # No more in-memory dict - using database now
 from backend.voice import generate_voice
@@ -243,8 +243,15 @@ async def handle_content(message: types.Message):
     user_id = message.from_user.id
     mode = get_user_mode(user_id)  # From database
 
+    # 0. UPDATE STREAK
+    streak, reward = update_streak(user_id)
+    streak_text = f" 🔥 {streak} дня!" if streak > 1 else ""
+
     # 1. VISCERAL LOADING (Build Value)
-    status_msg = await message.answer(f"⏳ **Очередь обработки: {mode}**...")
+    status_msg = await message.answer(f"⏳ **Очередь обработки: {mode}**{streak_text}...")
+    
+    if reward:
+        await message.answer("🎁 **БОНУС!** Вы с нами неделю! +1 Кредит на счет.")
     await bot.send_chat_action(message.chat.id, "typing")
     await asyncio.sleep(1.0)
 
