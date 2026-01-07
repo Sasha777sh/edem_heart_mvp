@@ -6,7 +6,11 @@ from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo, FSInputFile
 from backend.field_reader import FieldReader
-from backend.database import create_user, get_user, get_referral_stats, use_credit
+from backend.database import (
+    get_user, create_user, get_referral_stats, use_credit,
+    get_user_mode, set_user_mode, add_to_history
+)
+# No more in-memory dict - using database now
 from backend.voice import generate_voice
 
 # --- CONFIGURATION ---
@@ -80,7 +84,7 @@ async def cmd_start(message: types.Message):
             pass  # User might have blocked bot
         
     # Set State
-    user_modes[message.from_user.id] = mode
+    set_user_mode(message.from_user.id, mode)
     
     # Get Localized Text
     text = LOCALES[lang]["welcome"].get(mode, LOCALES[lang]["welcome"]["red_flag"])
@@ -119,18 +123,30 @@ async def handle_menu_click(message: types.Message):
     lang = "ru" if "ru" in user_lang else "en"
     
     txt = message.text
-    mode = "red_flag"
     
-    if "Dream" in txt or "Сонник" in txt: mode = "dream"
-    elif "Med" in txt: mode = "med"
-    elif "Law" in txt or "Юрист" in txt: mode = "paper"
-    elif "Reels" in txt: mode = "reels"
+    # Map button text to mode
+    if "Dream" in txt or "Сонник" in txt:
+        mode = "dream"
+    elif "Med" in txt:
+        mode = "med"
+    elif "Law" in txt or "Юрист" in txt:
+        mode = "paper"
+    elif "Reels" in txt:
+        mode = "reels"
+    elif "RedFlag" in txt:
+        mode = "red_flag"
+    else:
+        mode = "red_flag"  # Fallback
     
-    user_modes[message.from_user.id] = mode
+    # Update user's mode
+    set_user_mode(message.from_user.id, mode)
+    
+    print(f"🔄 User {message.from_user.id} switched to mode: {mode}")  # Debug log
     
     # Send Welcome for New Mode
     text = LOCALES[lang]["welcome"].get(mode, LOCALES[lang]["welcome"]["red_flag"])
     await message.answer(text, parse_mode="Markdown", reply_markup=get_main_keyboard(lang))
+
 
 @dp.message(Command("invite"))
 async def cmd_invite(message: types.Message):
@@ -201,7 +217,7 @@ async def handle_content(message: types.Message):
     Universal Handler
     """
     user_id = message.from_user.id
-    mode = user_modes.get(user_id, "red_flag") # Default
+    mode = get_user_mode(user_id)  # From database
 
     # 1. VISCERAL LOADING (Build Value)
     status_msg = await message.answer(f"⏳ **Очередь обработки: {mode}**...")
@@ -278,31 +294,7 @@ async def handle_content(message: types.Message):
         
         final_text = raw_response + progress_bar
 
-        # 2.5 VOICE MODE (The Hook)
-        # We take the first 200 chars or summary for voice to avoid long wait
-        try:
-            # Simple heuristic: Split by newline, take first paragraph or up to 200 chars
-            voice_text = raw_response.split("\n")[0]
-            if len(voice_text) < 50: # If too short, take more
-                voice_text = raw_response[:200]
-            
-            # Clean up markdown for voice
-            voice_text_clean = voice_text.replace("*", "").replace("#", "").replace("🚩", "")
-            
-            await bot.send_chat_action(message.chat.id, "record_voice")
-            voice_path = await generate_voice(f"Послушай... {voice_text_clean}", folder="assets")
-            
-            voice_file = types.FSInputFile(voice_path)
-            await message.answer_voice(voice_file, caption="🎙 **Аудио-резюме (AI)**")
-            
-            # Cleanup later (optional, for now we keep assets or rely on OS to clean tmp)
-            # os.remove(voice_path) 
-        except Exception as e:
-            print(f"Voice Error: {e}") 
-            # Non-blocking error, just skip voice
-
-        # 2.5 VOICE MODE (The Hook)
-        # We take the first 200 chars-ish
+        # VOICE MODE (AI Summary)
         try:
             user_lang = message.from_user.language_code or "en"
             lang = "ru" if "ru" in user_lang else "en"
@@ -325,7 +317,8 @@ async def handle_content(message: types.Message):
             await message.answer_voice(voice_file, caption="🎙 **AI Summary**")
             
         except Exception as e:
-            print(f"Voice Error: {e}") 
+            print(f"Voice Error: {e}")
+ 
 
         # 3. PAY BUTTON (Custom for each mode & Lang)
         btn_key = f"buy_{mode}"
@@ -383,7 +376,7 @@ async def use_credit_callback(callback: types.CallbackQuery):
     if use_credit(user_id):
         # Activate premium mode
         premium_mode = f"{mode}_premium"
-        user_modes[user_id] = premium_mode
+        set_user_mode(user_id, premium_mode)
         
         await callback.message.answer(
             "🔓 **PREMIUM АКТИВИРОВАН (Кредит использован)**\n\n"
@@ -472,7 +465,7 @@ async def process_successful_payment(message: types.Message):
     # Let's update Mode to Premium and ask to Resend.
     
     premium_mode = f"{mode}_premium"
-    user_modes[message.from_user.id] = premium_mode
+    set_user_mode(message.from_user.id, premium_mode)
     
     await status_msg.edit_text(
         "🔓 **PREMIUM РЕЖИМ АКТИВИРОВАН**\n\n"

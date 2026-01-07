@@ -20,7 +20,8 @@ def init_db():
             joined_at TEXT,
             referred_by INTEGER,
             referral_count INTEGER DEFAULT 0,
-            credits INTEGER DEFAULT 0
+            credits INTEGER DEFAULT 0,
+            current_mode TEXT DEFAULT 'red_flag'
         )
     ''')
     
@@ -170,6 +171,26 @@ def get_user_history(user_id, limit=5):
         })
     
     return history
+
+def get_user_mode(user_id):
+    """Get user's current mode."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT current_mode FROM users WHERE user_id = ?", (user_id,))
+    result = cursor.fetchone()
+    conn.close()
+    return result[0] if result else "red_flag"
+
+def set_user_mode(user_id, mode):
+    """Set user's current mode."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute('''
+        UPDATE users SET current_mode = ?
+        WHERE user_id = ?
+    ''', (mode, user_id))
+    conn.commit()
+    conn.close()
 
 # Initialize on import
 init_db()
