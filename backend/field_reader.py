@@ -21,7 +21,7 @@ class FieldReader:
         # Fallback to key in env or default
         self.api_key = api_key or os.getenv("GEMINI_API_KEY") or "AIzaSyAVcKK5KcpduBv2hh-uvMreDGvTHX-uURE" 
         genai.configure(api_key=self.api_key)
-        self.model = genai.GenerativeModel('gemini-2.0-flash-exp')  # Latest stable
+        self.model = genai.GenerativeModel('gemini-3-flash-preview')  # Gemini 3 (official name)
 
     def _get_prompt(self, mode: str) -> str:
         # FACTORY MODES

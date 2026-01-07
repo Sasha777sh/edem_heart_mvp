@@ -134,7 +134,7 @@ DISCLAIMER В НАЧАЛЕ: "Это информация для ознакомл
     }
 
     try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-3.0-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-3-flash-preview' });
         const result = await model.generateContent(prompt);
         const response = result.response;
         const text = response.text();
