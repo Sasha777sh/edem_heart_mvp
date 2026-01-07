@@ -213,6 +213,28 @@ Send content and use credit instead of paying!
     await message.answer(text, parse_mode="Markdown")
 
 
+@dp.message(Command("history"))
+async def cmd_history(message: types.Message):
+    """
+    Get User History.
+    """
+    user_id = message.from_user.id
+    history = get_user_history(user_id)
+    
+    if not history:
+        await message.answer("🗓 Ваша история пока пуста. Отправьте что-нибудь на анализ!")
+        return
+        
+    text = "🗓 **Ваша история анализов:**\n\n"
+    for item in history:
+        mode, preview, result, ts = item
+        text += f"🔹 **{mode.upper()}** ({ts})\n"
+        text += f"   *Вход:* {preview}...\n"
+        text += f"   *Итог:* {result}...\n\n"
+        
+    await message.answer(text, parse_mode="Markdown")
+
+
 @dp.message(F.content_type.in_({'text', 'photo', 'document', 'voice'}))
 async def handle_content(message: types.Message):
     """
@@ -293,8 +315,12 @@ async def handle_content(message: types.Message):
         # ADD PROGRESS BAR (UI Hack)
         # We append this to the text to show "incompleteness"
         progress_bar = "\n\n░░░░░░░░░░ [80% Готово]\n🔒 **Полный прогноз скрыт.**"
-        
         final_text = raw_response + progress_bar
+
+        # 2.2 SAVE TO HISTORY
+        input_preview = text_content[:50] if text_content else "Media file"
+        result_preview = raw_response[:80]
+        add_to_history(user_id, mode, input_preview, result_preview)
 
         # VOICE MODE (AI Summary)
         try:

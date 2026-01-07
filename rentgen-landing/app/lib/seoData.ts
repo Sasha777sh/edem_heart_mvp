@@ -150,3 +150,16 @@ export const CAREER_RU = [
     { slug: "toksichny-kollektiv", name: "Токсичный коллектив", target: "выживание в офисе" },
     { slug: "kak-uvolitsya", name: "Как уволиться без отработки", target: "ТК РФ" }
 ];
+
+export const PSYCHO_RU = [
+    { slug: "bol-v-spine", name: "Болит спина", cause: "отсутствие поддержки, страх денег" },
+    { slug: "bolit-gorlo", name: "Болит горло", cause: "невысказанная обида, страх конфликта" },
+    { slug: "problemy-s-kozhoy", name: "Проблемы с кожей", cause: "страх близости, нарушение границ" },
+    { slug: "lishniy-ves", name: "Лишний вес", cause: "защита от мира, заедание стресса" },
+    { slug: "bolit-zhivot", name: "Болит живот", cause: "непереваривание ситуации, тревога" },
+    { slug: "boliat-koleni", name: "Болят колени", cause: "упрямство, гордыня, страх перемен" },
+    { slug: "problemy-s-zreniem", name: "Ухудшение зрения", cause: "нежелание что-то видеть в жизни" },
+    { slug: "allergia", name: "Аллергия", cause: "непереносимость кого-то или чего-то" },
+    { slug: "astma", name: "Астма", cause: "подавленный плач, удушающая любовь" },
+    { slug: "migren", name: "Мигрень", cause: "перфекционизм, подавленная злость" }
+];

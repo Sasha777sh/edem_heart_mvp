@@ -1,4 +1,4 @@
-import { CITIES_RU, CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, TARO_CARDS_RU, ZODIAC_RU, CAREER_RU } from './seoData';
+import { CITIES_RU, CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, TARO_CARDS_RU, ZODIAC_RU, CAREER_RU, PSYCHO_RU } from './seoData';
 
 export type SeoPage = {
     slug: string;
@@ -117,6 +117,18 @@ function generatePages(): SeoPage[] {
             desc: `Проблема: ${c.target}. Как решить через трудовой кодекс или переговоры? Загрузи документы или переписку с боссом.`,
             category: "Карьера",
             startParam: "paper"
+        });
+    });
+
+    // 8. PSYCHOSOMATICS (The Profit Step)
+    PSYCHO_RU.forEach(p => {
+        pages.push({
+            slug: `psihosomatika-${p.slug}`,
+            title: `Психосоматика: ${p.name}. Эмоциональные причины | RENTGEN`,
+            h1: `Почему ${p.name.toLowerCase()}? Психосоматический разбор`,
+            desc: `Узнайте, какая эмоция вызывает симптом "${p.name}". Вероятная причина: ${p.cause}. Полная расшифровка связи тела и психики.`,
+            category: "Психосоматика",
+            startParam: "psycho"
         });
     });
 
