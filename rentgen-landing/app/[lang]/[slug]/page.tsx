@@ -8,6 +8,8 @@ import StickyCTA from "../../components/StickyCTA";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
 import { generatePageContent } from "../../lib/geminiContentGenerator";
 import { TOP_PAGES_SLUGS } from "../../lib/topPages";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import RelatedArticles from "../../components/RelatedArticles";
 
 // Pre-generate only top 1000 pages at build time
 export async function generateStaticParams() {
@@ -141,6 +143,11 @@ export default async function SeoPage({ params }: { params: Promise<{ lang: "en"
 
             <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 flex flex-col items-center gap-16">
 
+                {/* BREADCRUMBS */}
+                <div className="w-full">
+                    <Breadcrumbs lang={lang} category={pageData.category} title={pageData.title} />
+                </div>
+
                 {/* 1. HERO CONTENT FOR SEO */}
                 <section className="text-center space-y-8 animate-fade-in-up">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs font-medium text-gray-400 tracking-wider uppercase mb-4">
@@ -175,6 +182,14 @@ export default async function SeoPage({ params }: { params: Promise<{ lang: "en"
 
                 {/* 4. FAQ */}
                 <FaqSection dict={dict} />
+
+                {/* 5. RELATED ARTICLES (Internal Linking) */}
+                <RelatedArticles
+                    currentSlug={slug}
+                    currentCategory={pageData.category}
+                    lang={lang}
+                    allPages={seoPages}
+                />
 
                 <footer className="w-full text-center text-gray-600 text-sm py-10">
                     <p>{dict.footer}</p>
