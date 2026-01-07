@@ -7,12 +7,15 @@ import FaqSection from "../../components/FaqSection";
 import StickyCTA from "../../components/StickyCTA";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
 import { generatePageContent } from "../../lib/geminiContentGenerator";
+import { TOP_PAGES_SLUGS } from "../../lib/topPages";
 
-// Force static generation for these 50 pages if possible, or use dynamic
+// Pre-generate only top 1000 pages at build time
 export async function generateStaticParams() {
-    return seoPages.flatMap((page) => [
-        { lang: "ru", slug: page.slug },
-        { lang: "en", slug: page.slug }
+    // Only top pages get static generation
+    // Rest use ISR (Incremental Static Regeneration)
+    return TOP_PAGES_SLUGS.flatMap((slug) => [
+        { lang: "ru", slug },
+        { lang: "en", slug }
     ]);
 }
 
