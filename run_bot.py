@@ -195,7 +195,7 @@ Send content and use credit instead of paying!
     await message.answer(text, parse_mode="Markdown")
 
 
-@dp.message(F.content_type.in_({'text', 'photo', 'document'}))
+@dp.message(F.content_type.in_({'text', 'photo', 'document', 'voice'}))
 async def handle_content(message: types.Message):
     """
     Universal Handler
@@ -254,6 +254,13 @@ async def handle_content(message: types.Message):
             else:
                 await status_msg.edit_text("❌ Формат не поддерживается. Пришлите PDF или Картинку.")
                 return
+        
+        elif message.voice:
+            # Download voice message
+            file_id = message.voice.file_id
+            media_content = reader.download_file(file_id, API_TOKEN)
+            mime_type = "audio/ogg"  # Telegram voice format
+            text_content = "Распознай голосовое сообщение"
 
         # 2. CALL GEMINI
         result = await reader.analyze_content(

@@ -1,2 +1,13 @@
 INFO:aiogram.dispatcher:Start polling
 INFO:aiogram.dispatcher:Run polling for bot @shadowreade_bot id=8133235026 - 'RENTGEN: Анализ Личности, Снов и Здоровья (AI)'
+INFO:aiogram.event:Update id=240511447 is handled. Duration 16289 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511448 is handled. Duration 660 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511449 is handled. Duration 256 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511450 is handled. Duration 265 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511451 is handled. Duration 333 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511452 is handled. Duration 287 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511453 is handled. Duration 282 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511454 is handled. Duration 519 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511455 is handled. Duration 251 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511456 is handled. Duration 320 ms by bot id=8133235026
+INFO:aiogram.event:Update id=240511457 is not handled. Duration 3 ms by bot id=8133235026
