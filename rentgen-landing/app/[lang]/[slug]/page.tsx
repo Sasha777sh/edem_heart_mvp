@@ -6,6 +6,7 @@ import TelegramLoginButton from "../../components/TelegramLoginButton";
 import FaqSection from "../../components/FaqSection";
 import StickyCTA from "../../components/StickyCTA";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
+import { generatePageContent } from "../../lib/geminiContentGenerator";
 
 // Force static generation for these 50 pages if possible, or use dynamic
 export async function generateStaticParams() {
@@ -36,6 +37,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: "en
     };
 }
 
+// Enable ISR with 24-hour revalidation
+export const revalidate = 86400; // 24 hours
+
 export default async function SeoPage({ params }: { params: Promise<{ lang: "en" | "ru" | "es" | "pt", slug: string }> }) {
     const { lang, slug } = await params;
     const dict = await dictionaries[lang]();
@@ -43,6 +47,16 @@ export default async function SeoPage({ params }: { params: Promise<{ lang: "en"
 
     if (!pageData) {
         notFound();
+    }
+
+    // Generate AI content (cached for 24h via revalidate)
+    let aiContent = '';
+    try {
+        aiContent = await generatePageContent(slug, pageData);
+    } catch (error) {
+        console.error('AI content generation failed:', error);
+        // Fallback to description if AI fails
+        aiContent = pageData.desc;
     }
 
     // BOT SELECTION LOGIC
@@ -119,14 +133,9 @@ export default async function SeoPage({ params }: { params: Promise<{ lang: "en"
                     <ComparisonCalculator dict={dict} />
                 </div>
 
-                {/* 3. CONTEXT / INTRO TEXT */}
-                <section className="prose prose-invert prose-lg text-gray-400 max-w-none w-full">
-                    <h3>Почему это опасно?</h3>
-                    <p>
-                        Большинство текстов составлены с <strong>асимметрией</strong> в пользу одной стороны.
-                        Вы берете на себя риски, о которых не подозреваете, пока не случится проблема.
-                        AI находит эти "слепые пятна" автоматически.
-                    </p>
+                {/* 3. AI-GENERATED UNIQUE CONTENT */}
+                <section className="prose prose-invert prose-lg text-gray-400 max-w-none w-full whitespace-pre-line">
+                    {aiContent}
                 </section>
 
                 {/* 4. FAQ */}
