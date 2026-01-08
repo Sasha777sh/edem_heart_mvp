@@ -172,3 +172,12 @@ export const AUTO_RU = [
     { slug: "cherniy-dym", name: "Черный дым", symptom: "переобогащенная смесь" },
     { slug: "vibracia-na-skorosti", name: "Вибрация на руле", symptom: "кривые диски или балансировка" }
 ];
+
+export const MARKETPLACE_RU = [
+    { slug: "wildberries-dogovor", name: "Договор Wildberries", target: "скрытые штрафы и приемка" },
+    { slug: "ozon-oferta", name: "Оферта Ozon", target: "комиссии и возвраты" },
+    { slug: "yandex-market-dogovor", name: "Договор Яндекс Маркет", target: "индекс качества и логистика" },
+    { slug: "shtraf-za-gabarity", name: "Штраф за габариты", target: "как оспорить обмеры" },
+    { slug: "poteru-tovara-wb", name: "Потеря товара на WB", target: "алгоритм поиска и претензия" },
+    { slug: "blokirovka-kabineta", name: "Блокировка кабинета", target: "как разблокировать селлера" }
+];

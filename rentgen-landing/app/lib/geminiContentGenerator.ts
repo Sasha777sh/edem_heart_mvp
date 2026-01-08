@@ -13,8 +13,9 @@ export async function generateSEOContent(params: {
     zodiac?: string;
     career?: string;
     lang?: string;
+    market?: string;
 }): Promise<string> {
-    const { city, contractType, dream, symptom, redFlag, taroCard, zodiac, career, lang = 'ru' } = params;
+    const { city, contractType, dream, symptom, redFlag, taroCard, zodiac, career, lang = 'ru', market } = params;
 
     let prompt = '';
 
@@ -182,6 +183,35 @@ DISCLAIMER В НАЧАЛЕ: "Это информация для ознакомл
 
 Стиль: мужской, технический, надежный.
 Формат: markdown`;
+    } else if (params.market) {
+        prompt = `Напиши экспертную статью для селлеров маркетплейсов на 800 слов:
+
+Тема: "${params.market}" — как защитить свой бизнес (WB, Ozon, Yandex Market)
+
+ВАЖНО: Пиши в стиле "Анти-Инфобизнес" (факты, закон, риски).
+
+**Вопрос:** В чем главная опасность темы "${params.market}"?
+
+**Ответ:**
+Маркетплейсы — это жесткая экосистема. Если вы столкнулись с "${params.market.toLowerCase()}", время работает против вас.
+
+**Топ-5 капкан-пунктов в оферте:**
+1. [Капкан 1: например, одностороннее изменение цен]
+2. [Капкан 2]
+3. [Капкан 3]
+4. [Капкан 4]
+5. [Капкан 5]
+
+**Как оспорить штрафы и удержания:**
+- Шаг 1: Правильная фотофиксация при отгрузке
+- Шаг 2: Алгоритм подачи досудебной претензии
+- Шаг 3: Статьи ГК РФ, которые отменяют штрафы маркетплейса
+
+**Кейс из практики:**
+Краткая история (AI-сгенерированная), как селлер смог отстоять свои права.
+
+Стиль: деловой, защищающий интересы предпринимателя.
+Формат: markdown`;
     } else {
         // Default generic content
         prompt = `Напиши короткую SEO-статью на 300 слов о проверке документов и отношений с помощью AI. Стиль: практический.`;
@@ -234,6 +264,8 @@ export async function generatePageContent(slug: string, pageData: any): Promise<
     } else if (slug.includes('auto-')) {
         params.auto = pageData.title?.split(' в г. ')[0] || 'поломка';
         params.city = slug.split('-').pop();
+    } else if (slug.includes('marketplace-')) {
+        params.market = pageData.title?.split(':')[0] || 'маркетплейс';
     }
 
     return await generateSEOContent(params);

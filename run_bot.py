@@ -104,19 +104,19 @@ def get_main_keyboard(lang="en"):
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Сонник")],
             [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
-            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="📝 Юрист")],
-            [types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="🛒 Marketplace")],
+            [types.KeyboardButton(text="📝 Юрист"), types.KeyboardButton(text="🎬 Reels")]
         ]
     else:
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Dream")],
             [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
-            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="📝 Law")],
-            [types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="🛒 Marketplace")],
+            [types.KeyboardButton(text="📝 Law"), types.KeyboardButton(text="🎬 Reels")]
         ]
     return types.ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
 
-@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom", "📟 Prompts"}))
+@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom", "📟 Prompts", "🛒 Marketplace"}))
 async def handle_menu_click(message: types.Message):
     """
     Switch Mode via Menu.
@@ -139,6 +139,8 @@ async def handle_menu_click(message: types.Message):
         mode = "psycho"
     elif "Prompts" in txt:
         mode = "prompts"
+    elif "Marketplace" in txt:
+        mode = "market"
     elif "RedFlag" in txt:
         mode = "red_flag"
     else:
@@ -454,7 +456,8 @@ async def process_payment(callback: types.CallbackQuery, mode: str):
         "med": 100,
         "paper": 250,
         "psycho": 70,
-        "prompts": 30
+        "prompts": 30,
+        "market": 150
     }
     
     titles = {
@@ -463,7 +466,8 @@ async def process_payment(callback: types.CallbackQuery, mode: str):
         "med": "🩸 Med: Doctor Plan",
         "paper": "📝 Paper: Pre-trial Claim",
         "psycho": "🧠 Psychosom: Root Cause",
-        "prompts": "📟 AI Prompt: Senior Pack"
+        "prompts": "📟 AI Prompt: Senior Pack",
+        "market": "🛒 Marketplace: Trap Audit"
     }
 
     desc = "Полный отчет + прогноз + рекомендации."

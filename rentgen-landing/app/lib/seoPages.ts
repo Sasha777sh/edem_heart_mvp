@@ -1,4 +1,4 @@
-import { CITIES_RU, CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, TARO_CARDS_RU, ZODIAC_RU, CAREER_RU, PSYCHO_RU, AUTO_RU } from './seoData';
+import { CITIES_RU, CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, TARO_CARDS_RU, ZODIAC_RU, CAREER_RU, PSYCHO_RU, AUTO_RU, MARKETPLACE_RU } from './seoData';
 
 export type SeoPage = {
     slug: string;
@@ -143,6 +143,18 @@ function generatePages(): SeoPage[] {
                 category: "Авто",
                 startParam: "paper"
             });
+        });
+    });
+
+    // 10. MARKETPLACE (The High Ticket Step)
+    MARKETPLACE_RU.forEach(m => {
+        pages.push({
+            slug: `marketplace-${m.slug}`,
+            title: `${m.name}: аудит и риски | RENTGEN`,
+            h1: `Разбор: ${m.name}. Как защитить селлера?`,
+            desc: `Анализ документа "${m.name}". Проблема: ${m.target}. Узнайте, как оспорить штрафы и найти скрытые ловушки в оферте с помощью AI.`,
+            category: "Маркетплейсы",
+            startParam: "market"
         });
     });
 
