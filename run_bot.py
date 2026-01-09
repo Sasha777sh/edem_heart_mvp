@@ -70,7 +70,8 @@ async def cmd_start(message: types.Message):
             referrer_id = int(payload.replace("ref_", ""))
         except:
             pass
-    elif payload in ["dream", "med", "paper", "reels", "psycho", "prompts", "alex_sales", "dome"]:
+    elif payload in ["dream", "med", "paper", "reels", "psycho", "prompts", "alex_sales", "dome",
+                     "avito", "angry", "ex", "boss", "toast"]:
         mode = payload
     
     # Create user if new
@@ -123,14 +124,14 @@ def get_main_keyboard(lang="en"):
     else:
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Dream")],
-            [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
-            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="🛒 Market")],
-            [types.KeyboardButton(text="📝 Law"), types.KeyboardButton(text="🏰 Dome")],
-            [types.KeyboardButton(text="🤵 Alex"), types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="💵 Avito"), types.KeyboardButton(text="🤬 Angry")],
+            [types.KeyboardButton(text="💔 Ex"), types.KeyboardButton(text="👔 Boss")],
+            [types.KeyboardButton(text="🥂 Toast"), types.KeyboardButton(text="🎬 Reels")],
+            [types.KeyboardButton(text="📝 Law"), types.KeyboardButton(text="🏰 Dome")]
         ]
     return types.ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
 
-@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom", "📟 Prompts", "🛒 Market", "🏰 Dome", "🤵 Alex"}))
+@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom", "📟 Prompts", "🛒 Market", "🏰 Dome", "🤵 Alex", "💵 Avito", "🤬 Angry", "💔 Ex", "👔 Boss", "🥂 Toast"}))
 async def handle_menu_click(message: types.Message):
     """
     Switch Mode via Menu.
@@ -159,6 +160,16 @@ async def handle_menu_click(message: types.Message):
         mode = "dome"
     elif "Alex" in txt:
         mode = "alex_sales"
+    elif "Avito" in txt:
+        mode = "avito"
+    elif "Angry" in txt:
+        mode = "angry"
+    elif "Ex" in txt:
+        mode = "ex"
+    elif "Boss" in txt:
+        mode = "boss"
+    elif "Toast" in txt:
+        mode = "toast"
     elif "RedFlag" in txt:
         mode = "red_flag"
     else:
@@ -477,7 +488,12 @@ async def process_payment(callback: types.CallbackQuery, mode: str):
         "prompts": 30,
         "market": 150,
         "dome": 190,
-        "alex_sales": 300
+        "alex_sales": 300,
+        "avito": 50,
+        "angry": 50,
+        "ex": 50,
+        "boss": 50,
+        "toast": 50
     }
     
     titles = {
@@ -489,7 +505,12 @@ async def process_payment(callback: types.CallbackQuery, mode: str):
         "prompts": "📟 AI Prompt: Senior Pack",
         "market": "🛒 Marketplace: Trap Audit",
         "dome": "🏰 Dome: Project & Specification",
-        "alex_sales": "🤵 Alex: Asia Investment Plan"
+        "alex_sales": "🤵 Alex: Asia Investment Plan",
+        "avito": "💵 Avito: Pro Seller Text",
+        "angry": "🤬 Angry Client: Crisis Management",
+        "ex": "💔 Ex Message: Dignity Pack",
+        "boss": "👔 Boss Reply: Career Saver",
+        "toast": "🥂 Toast Master: Best Speech"
     }
 
     desc = "Полный отчет + прогноз + рекомендации."

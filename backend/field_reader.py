@@ -28,7 +28,13 @@ from backend.prompts import (
     ALEX_SALES_PROMPT,
     ALEX_PREMIUM_PROMPT,
     RISK_SCANNER_SYSTEM_PROMPT,
-    RISK_AUDITOR_PREMIUM_PROMPT
+    RISK_SCANNER_SYSTEM_PROMPT,
+    RISK_AUDITOR_PREMIUM_PROMPT,
+    AVITO_WRITER_PROMPT,
+    ANGRY_CLIENT_PROMPT,
+    MESSAGE_TO_EX_PROMPT,
+    MESSAGE_TO_BOSS_PROMPT,
+    TOAST_MASTER_PROMPT
 )
 from backend.privacy import sanitize_personal_data, is_safe_to_send
 
@@ -70,6 +76,15 @@ class FieldReader:
         if mode == "market": return MARKETPLACE_SYSTEM_PROMPT
         if mode == "dome": return DOME_SYSTEM_PROMPT
         if mode == "alex_sales": return ALEX_SALES_PROMPT
+        if mode == "alex_sales": return ALEX_SALES_PROMPT
+        
+        # MASS MARKET MODES
+        if mode == "avito": return AVITO_WRITER_PROMPT
+        if mode == "angry": return ANGRY_CLIENT_PROMPT
+        if mode == "ex": return MESSAGE_TO_EX_PROMPT
+        if mode == "boss": return MESSAGE_TO_BOSS_PROMPT
+        if mode == "toast": return TOAST_MASTER_PROMPT
+
         if mode == "contract": return COLD_SYSTEM_PROMPT
         
         return COLD_SYSTEM_PROMPT # Default
