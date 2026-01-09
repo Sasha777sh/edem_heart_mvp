@@ -6,9 +6,11 @@ type Props = {
     dict: any;
     botName?: string;
     startParam?: string;
+    customText?: string;
+    customSub?: string;
 };
 
-export default function TelegramLoginButton({ dict, botName = "DogovorCheckBot", startParam = "website_login" }: Props) {
+export default function TelegramLoginButton({ dict, botName = "DogovorCheckBot", startParam = "website_login", customText, customSub }: Props) {
     return (
         <a
             href={`https://t.me/${botName}?start=${startParam}`}
@@ -24,8 +26,8 @@ export default function TelegramLoginButton({ dict, botName = "DogovorCheckBot",
             </svg>
 
             <div className="flex flex-col items-start leading-none relative z-10">
-                <span className="text-sm">{dict.login.button}</span>
-                <span className="text-[10px] opacity-80 font-normal mt-0.5">{dict.login.sub}</span>
+                <span className="text-sm">{customText || dict.login.button}</span>
+                <span className="text-[10px] opacity-80 font-normal mt-0.5">{customSub || dict.login.sub}</span>
             </div>
         </a>
     );

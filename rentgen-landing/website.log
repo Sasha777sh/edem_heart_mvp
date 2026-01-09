@@ -4624,3 +4624,4 @@ https://nextjs.org/docs/messages/module-not-found
  GET /ru/dome 200 in 3.3s (compile: 280ms, proxy.ts: 113ms, generate-params: 209µs, render: 2.9s)
  GET /ru/dome 200 in 2.7s (compile: 201ms, proxy.ts: 40ms, generate-params: 100µs, render: 2.5s)
  GET /ru/dome 200 in 2.1s (compile: 165ms, proxy.ts: 80ms, generate-params: 25ms, render: 1842ms)
+✓ Compiled in 1986ms

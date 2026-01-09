@@ -176,7 +176,13 @@ export default async function SeoPage({ params }: { params: Promise<{ lang: "en"
                     </p>
 
                     <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
-                        <TelegramLoginButton dict={dict} botName={botName} startParam={startParam} />
+                        <TelegramLoginButton
+                            dict={dict}
+                            botName={botName}
+                            startParam={startParam}
+                            customText={isDome ? "Получить Инвест-План" : undefined}
+                            customSub={isDome ? "Чат с Архитектором (Alex)" : undefined}
+                        />
                     </div>
                 </section>
 
