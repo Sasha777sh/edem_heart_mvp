@@ -1,7 +1,8 @@
 import React from "react";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
 import StickyCTA from "../../components/StickyCTA";
-import TelegramLoginButton from "../../components/TelegramLoginButton";
+import TelegramLoginButton from "@/app/components/TelegramLoginButton";
+import ROICalculator from "@/app/components/dome/ROICalculator";
 
 export default async function DomePage({ params }: { params: Promise<{ lang: "en" | "ru" | "es" | "pt" }> }) {
     const { lang } = await params;
@@ -326,6 +327,9 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
                     </div>
                 </div>
             </section>
+
+
+            <ROICalculator />
 
             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
                 Dome Luxe Global © 2026. Designed by Antigravity.

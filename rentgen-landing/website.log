@@ -86,3 +86,128 @@
  GET /ru/dome 200 in 1959ms (compile: 735ms, proxy.ts: 77ms, generate-params: 151µs, render: 1147ms)
  GET /ru 200 in 722ms (compile: 67ms, proxy.ts: 17ms, generate-params: 7ms, render: 637ms)
  GET /ru/dome 200 in 472ms (compile: 99ms, proxy.ts: 20ms, generate-params: 8ms, render: 354ms)
+✓ Compiled in 5.4s
+✓ Finished writing to filesystem cache in 15.6s
+✓ Compiled in 31.6s
+⨯ ReferenceError: ROICalculator is not defined
+    at DomePage (app/[lang]/dome/page.tsx:331:14)
+  329 |
+  330 |
+> 331 |             <ROICalculator />
+      |              ^
+  332 |
+  333 |             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
+  334 |                 Dome Luxe Global © 2026. Designed by Antigravity. {
+  digest: '2958658015'
+}
+⨯ ReferenceError: ROICalculator is not defined
+    at DomePage (app/[lang]/dome/page.tsx:331:14)
+  329 |
+  330 |
+> 331 |             <ROICalculator />
+      |              ^
+  332 |
+  333 |             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
+  334 |                 Dome Luxe Global © 2026. Designed by Antigravity. {
+  digest: '2958658015'
+}
+⨯ ReferenceError: ROICalculator is not defined
+    at DomePage (app/[lang]/dome/page.tsx:331:14)
+  329 |
+  330 |
+> 331 |             <ROICalculator />
+      |              ^
+  332 |
+  333 |             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
+  334 |                 Dome Luxe Global © 2026. Designed by Antigravity. {
+  digest: '2958658015'
+}
+⨯ ReferenceError: ROICalculator is not defined
+    at DomePage (app/[lang]/dome/page.tsx:331:14)
+  329 |
+  330 |
+> 331 |             <ROICalculator />
+      |              ^
+  332 |
+  333 |             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
+  334 |                 Dome Luxe Global © 2026. Designed by Antigravity. {
+  digest: '2958658015'
+}
+⨯ ReferenceError: ROICalculator is not defined
+    at DomePage (app/[lang]/dome/page.tsx:331:14)
+  329 |
+  330 |
+> 331 |             <ROICalculator />
+      |              ^
+  332 |
+  333 |             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
+  334 |                 Dome Luxe Global © 2026. Designed by Antigravity. {
+  digest: '2958658015'
+}
+⨯ ReferenceError: ROICalculator is not defined
+    at DomePage (app/[lang]/dome/page.tsx:331:14)
+  329 |
+  330 |
+> 331 |             <ROICalculator />
+      |              ^
+  332 |
+  333 |             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
+  334 |                 Dome Luxe Global © 2026. Designed by Antigravity. {
+  digest: '2958658015'
+}
+⨯ ReferenceError: ROICalculator is not defined
+    at DomePage (app/[lang]/dome/page.tsx:331:14)
+  329 |
+  330 |
+> 331 |             <ROICalculator />
+      |              ^
+  332 |
+  333 |             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
+  334 |                 Dome Luxe Global © 2026. Designed by Antigravity. {
+  digest: '2958658015'
+}
+ GET /ru/dome 200 in 37.6s (compile: 23.7s, proxy.ts: 811ms, generate-params: 435µs, render: 13.1s)
+ GET /ru/dome 200 in 37.3s (compile: 20.2s, proxy.ts: 489ms, generate-params: 44ms, render: 16.6s)
+⨯ ReferenceError: ROICalculator is not defined
+    at DomePage (app/[lang]/dome/page.tsx:331:14)
+  329 |
+  330 |
+> 331 |             <ROICalculator />
+      |              ^
+  332 |
+  333 |             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
+  334 |                 Dome Luxe Global © 2026. Designed by Antigravity. {
+  digest: '2958658015'
+}
+ GET /ru/dome 200 in 10.3s (compile: 3.5s, proxy.ts: 43ms, generate-params: 91µs, render: 6.7s)
+ GET /ru/dome 200 in 10.3s (compile: 2.1s, proxy.ts: 204ms, generate-params: 7ms, render: 8.0s)
+ GET /ru/dome 200 in 10.3s (compile: 7.8s, proxy.ts: 15ms, generate-params: 57µs, render: 2.5s)
+ GET /ru/dome 200 in 10.6s (compile: 5.4s, proxy.ts: 194ms, generate-params: 90µs, render: 5.0s)
+ GET /ru/dome 200 in 11.0s (compile: 8.4s, proxy.ts: 27ms, generate-params: 83µs, render: 2.6s)
+ GET /ru/dome 200 in 11.2s (compile: 8.5s, proxy.ts: 1225ms, generate-params: 16ms, render: 1506ms)
+ GET /ru 200 in 40s (compile: 4.9s, proxy.ts: 48ms, generate-params: 209ms, render: 35.4s)
+ GET /ru 200 in 14.5s (compile: 4.4s, proxy.ts: 283ms, generate-params: 119µs, render: 9.8s)
+ GET /ru 200 in 3.9s (compile: 360ms, proxy.ts: 954ms, generate-params: 11ms, render: 2.5s)
+ GET /ru 200 in 591ms (compile: 216ms, proxy.ts: 63ms, generate-params: 521µs, render: 312ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Finished writing to filesystem cache in 11.5s
+ GET /ru 200 in 18.5s (compile: 1494ms, proxy.ts: 210ms, generate-params: 249ms, render: 16.8s)
+ GET /ru 200 in 6.4s (compile: 550ms, proxy.ts: 56ms, generate-params: 16ms, render: 5.8s)
+ GET /ru/dome 200 in 18.7s (compile: 5.7s, proxy.ts: 129ms, generate-params: 185ms, render: 12.9s)
+ GET /ru/dome 200 in 18.7s (compile: 8.8s, proxy.ts: 116ms, generate-params: 1166µs, render: 9.7s)
+ GET /ru 200 in 5.9s (compile: 747ms, proxy.ts: 50ms, generate-params: 67µs, render: 5.1s)
+ GET /ru/dome 200 in 7.2s (compile: 399ms, proxy.ts: 35ms, generate-params: 8ms, render: 6.7s)
+ GET /ru/dome 200 in 7.3s (compile: 770ms, proxy.ts: 22ms, generate-params: 77µs, render: 6.5s)
+ GET /ru/dome 200 in 7.0s (compile: 1543ms, proxy.ts: 148ms, generate-params: 82µs, render: 5.3s)
+ GET /ru/dome 200 in 7.0s (compile: 2.2s, proxy.ts: 185ms, generate-params: 578µs, render: 4.6s)
+ GET /ru/dome 200 in 4.4s (compile: 218ms, proxy.ts: 78ms, generate-params: 39ms, render: 4.1s)
+ GET /ru 200 in 3.5s (compile: 708ms, proxy.ts: 26ms, generate-params: 10ms, render: 2.8s)
+ GET /ru/dome 200 in 4.9s (compile: 131ms, proxy.ts: 21ms, generate-params: 45µs, render: 4.8s)
+ GET /ru/dome 200 in 1447ms (compile: 179ms, proxy.ts: 198ms, generate-params: 16ms, render: 1070ms)
