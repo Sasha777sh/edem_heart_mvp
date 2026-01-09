@@ -1,1 +1,4 @@
 .vercel
+.env
+check_key.py
+__pycache__/
