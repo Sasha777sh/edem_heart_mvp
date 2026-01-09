@@ -70,7 +70,7 @@ async def cmd_start(message: types.Message):
             referrer_id = int(payload.replace("ref_", ""))
         except:
             pass
-    elif payload in ["dream", "med", "paper", "reels", "psycho", "prompts"]:
+    elif payload in ["dream", "med", "paper", "reels", "psycho", "prompts", "alex_sales", "dome"]:
         mode = payload
     
     # Create user if new
