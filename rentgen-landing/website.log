@@ -4625,3 +4625,1153 @@ https://nextjs.org/docs/messages/module-not-found
  GET /ru/dome 200 in 2.7s (compile: 201ms, proxy.ts: 40ms, generate-params: 100µs, render: 2.5s)
  GET /ru/dome 200 in 2.1s (compile: 165ms, proxy.ts: 80ms, generate-params: 25ms, render: 1842ms)
 ✓ Compiled in 1986ms
+ GET /ru/dome 404 in 8.1s (compile: 2.5s, proxy.ts: 1900ms, render: 3.7s)
+○ Compiling /[lang]/[slug] ...
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/[lang]/(dome)/page.tsx:2:1
+Module not found: Can't resolve '../../../components/LanguageSwitcher'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33mLanguageSwitcher[39m [36mfrom[39m [32m"../../../components/LanguageSwitcher"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mStickyCTA[39m [36mfrom[39m [32m"../../../components/StickyCTA"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mTelegramLoginButton[39m [36mfrom[39m [32m"@/app/components/TelegramLoginButton"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mROICalculator[39m [36mfrom[39m [32m"@/app/components/dome/ROICalculator"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 54s (compile: 52s, proxy.ts: 699ms, render: 1471ms)
+ GET /ru/dome 500 in 57s (compile: 54s, proxy.ts: 2.7s, render: 805ms)
+ GET /ru/dome 500 in 57s (compile: 55s, proxy.ts: 2.1s, render: 750ms)
+ GET /ru/dome 500 in 77s (compile: 76s, proxy.ts: 108ms, render: 663ms)
+ GET /ru/dome 500 in 77s (compile: 76s, proxy.ts: 100ms, render: 491ms)
+ GET /ru/dome 500 in 55s (compile: 54s, proxy.ts: 926ms, render: 205ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+✓ Finished writing to filesystem cache in 51s
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 4.6s (compile: 3.9s, proxy.ts: 394ms, render: 289ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 4.6s (compile: 3.8s, proxy.ts: 525ms, render: 278ms)
+ GET /ru/dome 500 in 4.1s (compile: 3.9s, proxy.ts: 39ms, render: 109ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 4.4s (compile: 4.0s, proxy.ts: 14ms, render: 344ms)
+ GET /ru/dome 500 in 4.3s (compile: 4.2s, proxy.ts: 20ms, render: 145ms)
+ GET /ru/dome 500 in 4.5s (compile: 4.3s, proxy.ts: 39ms, render: 173ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 1262ms (compile: 871ms, proxy.ts: 39ms, render: 352ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 1042ms (compile: 779ms, proxy.ts: 17ms, render: 246ms)
+ GET /ru/dome 500 in 1037ms (compile: 836ms, proxy.ts: 19ms, render: 181ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 1067ms (compile: 730ms, proxy.ts: 65ms, render: 272ms)
+ GET /ru/dome 500 in 1089ms (compile: 796ms, proxy.ts: 50ms, render: 244ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 438ms (compile: 310ms, proxy.ts: 25ms, render: 103ms)
+ GET /ru/dome 500 in 435ms (compile: 318ms, proxy.ts: 34ms, render: 82ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 505ms (compile: 446ms, proxy.ts: 31ms, render: 29ms)
+ GET /ru/dome 500 in 563ms (compile: 333ms, proxy.ts: 32ms, render: 198ms)
+ GET /ru/dome 500 in 799ms (compile: 454ms, proxy.ts: 50ms, render: 294ms)
+ GET /ru/dome 500 in 877ms (compile: 636ms, proxy.ts: 39ms, render: 202ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 665ms (compile: 578ms, proxy.ts: 20ms, render: 67ms)
+ GET /ru/dome 500 in 688ms (compile: 590ms, proxy.ts: 21ms, render: 77ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 681ms (compile: 517ms, proxy.ts: 31ms, render: 134ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 577ms (compile: 471ms, proxy.ts: 55ms, render: 50ms)
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+⨯ ./app/lib/geminiContentGenerator.ts:328:3
+Parsing ecmascript source code failed
+[0m [90m 326 |[39m     [36mreturn[39m [36mawait[39m generateSEOContent(params)[33m;[39m
+ [90m 327 |[39m }
+[31m[1m>[22m[39m[90m 328 |[39m [32m``[39m[32m`[39m
+ [90m     |[39m   [31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 329 |[39m [32m[39m
+ [90m     |[39m [31m[1m^[22m[39m[0m
+
+Unterminated template
+
+Import trace:
+  Server Component:
+    ./app/lib/geminiContentGenerator.ts
+    ./app/[lang]/(rentgen)/[slug]/page.tsx
+
+
+ GET /ru/dome 500 in 681ms (compile: 173ms, proxy.ts: 12ms, render: 496ms)
+ GET /ru/dome 500 in 1310ms (compile: 1265ms, proxy.ts: 29ms, render: 16ms)
+ GET /ru/dome 500 in 1315ms (compile: 944ms, proxy.ts: 10ms, render: 361ms)
+ GET /ru/dome 500 in 1345ms (compile: 237ms, proxy.ts: 7ms, render: 1101ms)

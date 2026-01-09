@@ -1,9 +1,11 @@
 import React from "react";
-import ComparisonCalculator from "../../components/ComparisonCalculator";
-import TelegramLoginButton from "../../components/TelegramLoginButton";
-import FaqSection from "../../components/FaqSection";
-import StickyCTA from "../../components/StickyCTA";
-import LanguageSwitcher from "../../components/LanguageSwitcher";
+import ComparisonCalculator from "../../../components/ComparisonCalculator";
+import Image from "next/image";
+import { headers } from "next/headers";
+import TelegramLoginButton from "../../../components/TelegramLoginButton";
+import FaqSection from "../../../components/FaqSection";
+import StickyCTA from "../../../components/StickyCTA";
+import LanguageSwitcher from "../../../components/LanguageSwitcher";
 
 
 export default async function Home({ params }: { params: Promise<{ lang: "en" | "ru" | "es" | "pt" }> }) {
