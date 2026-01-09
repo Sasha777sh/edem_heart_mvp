@@ -24,13 +24,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // SEO Dynamic Routes (Matrix of Pages x Langs)
     const seoRoutes = seoPages.flatMap(page =>
-        ['ru', 'en', 'es', 'pt'].map(lang => ({
+        ['ru', 'en'].map(lang => ({ // Reduced matrix to RU/EN for speed
             url: `${baseUrl}/${lang}/${page.slug}`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
-            priority: 0.8,
+            priority: page.category === 'Dome Luxe' ? 1.0 : 0.8, // Prioritize Dome
         }))
     )
+
+    // Manual Dome Landing
+    staticRoutes.push({
+        url: `${baseUrl}/ru/dome`,
+        lastModified: new Date(),
+        changeFrequency: 'daily' as const,
+        priority: 1.0,
+    })
 
     return [...staticRoutes, ...seoRoutes]
 }

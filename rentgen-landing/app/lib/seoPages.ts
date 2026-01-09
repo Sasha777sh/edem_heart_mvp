@@ -1,22 +1,40 @@
 import { CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, PSYCHO_RU } from './seoData';
 
-export const DOME_RU = [
-    // INVESTMENT
-    { slug: 'investicii-v-nedvizhimost-bali-2025', name: 'Инвестиции в Недвижимость Бали', check: 'ROI 20-30%' },
-    { slug: 'skolko-stoit-postroit-villu-na-bali', name: 'Сколько стоит построить виллу на Бали', check: 'Смета' },
-    { slug: 'nedvizhimost-phuket-tseny', name: 'Недвижимость Пхукет Цены', check: 'Анализ рынка' },
-    { slug: 'passivnyy-dohod-na-nedvizhimosti', name: 'Пассивный доход на недвижимости', check: 'Стратегия' },
+// DOME LUXE CLUSTERS
+const CITIES = [
+    { slug: 'bali', name: 'Бали', market: 'Индонезия' },
+    { slug: 'phuket', name: 'Пхукет', market: 'Таиланд' },
+    { slug: 'dubai', name: 'Дубай', market: 'ОАЭ' },
+    { slug: 'cyprus', name: 'Кипр', market: 'Европа' },
+    { slug: 'almaty', name: 'Алматы', market: 'Казахстан' }
+];
 
-    // TECH / CONSTRUCTION
-    { slug: 'kupolnyy-dom-tsena-pod-klyuch', name: 'Купольный дом цена под ключ', check: 'Прайс-лист' },
+const TOPICS = [
+    { slug: 'investicii-v-nedvizhimost', name: 'Инвестиции в недвижимость', check: 'ROI 20%+' },
+    { slug: 'postroit-villu-tsena', name: 'Построить виллу цена', check: 'Смета' },
+    { slug: 'kupolnyy-dom-pod-klyuch', name: 'Купольный дом под ключ', check: 'Технология Airform' },
+    { slug: 'biznes-na-arende', name: 'Бизнес на аренде (Глэмпинг)', check: 'Готовая модель' }
+];
+
+export const DOME_RU: any[] = [];
+
+// 1. Cross-Multiply Topics x Cities
+CITIES.forEach(city => {
+    TOPICS.forEach(topic => {
+        DOME_RU.push({
+            slug: `${topic.slug}-${city.slug}`,
+            name: `${topic.name} ${city.name}`,
+            check: `${topic.check} (${city.market})`
+        });
+    });
+});
+
+// 2. Add Generic Tech Pages (No City)
+DOME_RU.push(
     { slug: 'tehnologiya-aircrete-otzyvy', name: 'Технология Aircrete Отзывы', check: 'Разбор технологии' },
     { slug: 'monolitnyy-kupol-svoimi-rukami', name: 'Монолитный купол своими руками', check: 'Инструкция' },
-    { slug: 'bystrovozvodimye-doma-dlya-kruglogodichnogo-prozhivaniya', name: 'Быстровозводимые дома', check: 'Сравнение' },
-
-    // B2B / GLAMPING
-    { slug: 'biznes-plan-glamping', name: 'Бизнес план Глэмпинг', check: 'Расчет окупаемости' },
-    { slug: 'kupit-dom-sferu-dlya-zhilya', name: 'Купить дом сферу для жилья', check: 'Каталог' }
-];
+    { slug: 'bystrovozvodimye-doma-dlya-zhizni', name: 'Быстровозводимые дома для жизни', check: 'Сравнение' }
+);
 
 export type SeoPage = {
     slug: string;

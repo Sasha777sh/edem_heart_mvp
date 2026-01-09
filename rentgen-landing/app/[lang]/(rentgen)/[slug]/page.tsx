@@ -94,14 +94,24 @@ export default async function SeoPage({ params }: { params: Promise<{ lang: "en"
         else if (pageData.category === "Health") startParam = "med";
         else if (pageData.category === "Paper") startParam = "paper";
         else startParam = "red_flag"; // Default
+    } else if (isDome) {
+        // DOME LUXE SPECIFIC
+        botName = "DogovorCheckBot";
+        startParam = "alex_sales";
     } else {
         // RENTGEN SPECIFIC
         botName = "DogovorCheckBot";
         startParam = "website_login";
     }
 
+    // 4. THEME SELECTION (Dark vs White)
+    const isDome = pageData.category === "Dome Luxe" || pageData.category === "Airform";
+    const themeClass = isDome
+        ? "min-h-screen bg-white text-black relative overflow-hidden selection:bg-black selection:text-white font-sans"
+        : "min-h-screen bg-black text-white relative overflow-hidden selection:bg-white selection:text-black";
+
     return (
-        <main className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-white selection:text-black">
+        <main className={themeClass}>
 
             {/* Schema.org for AI Engines */}
             <script
