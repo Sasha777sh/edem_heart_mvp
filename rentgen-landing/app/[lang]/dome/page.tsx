@@ -58,19 +58,21 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
             </nav>
 
             {/* HERO */}
-            <section className="relative pt-32 pb-20 px-6 min-h-[80vh] flex flex-col justify-center items-center text-center">
-                {/* Abstract Circle Background */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border-[1px] border-black/10 rounded-full z-0"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border-[1px] border-black/20 rounded-full z-0"></div>
+            <section className="relative pt-32 pb-20 px-6 min-h-[90vh] flex flex-col justify-center items-center text-center overflow-hidden">
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <img src="/images/dome/hero.png" alt="Dome Luxe Bali" className="w-full h-full object-cover opacity-100" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/40 to-white/90"></div>
+                </div>
 
-                <div className="relative z-10 max-w-4xl space-y-8">
-                    <p className="text-sm font-mono uppercase tracking-[0.3em] text-gray-500">{t.subtitle}</p>
-                    <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter">
+                <div className="relative z-10 max-w-4xl space-y-8 mt-20">
+                    <p className="text-sm font-mono uppercase tracking-[0.3em] text-black bg-white/50 backdrop-blur-sm px-4 py-1 rounded-full inline-block">{t.subtitle}</p>
+                    <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter drop-shadow-sm">
                         {t.hero.h1.split(" ").map((word, i) => (
                             <span key={i} className="block">{word}</span>
                         ))}
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+                    <p className="text-xl md:text-2xl text-gray-900 max-w-2xl mx-auto font-light leading-relaxed bg-white/70 backdrop-blur-md p-4 rounded-xl">
                         {t.hero.p}
                     </p>
 
@@ -90,7 +92,7 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
             </section>
 
             {/* STATS (Ticker Style) */}
-            <section className="w-full border-y border-black/10 bg-white">
+            <section className="w-full border-y border-black/10 bg-white relative z-10">
                 <div className="max-w-6xl mx-auto grid grid-cols-3 divide-x divide-black/10">
                     {t.stats.map((stat, i) => (
                         <div key={i} className="py-12 px-6 text-center">
@@ -101,34 +103,142 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
                 </div>
             </section>
 
-            {/* TECHNOLOGY (Grid) */}
-            <section className="py-24 px-6 bg-[#E5E5E5]">
-                <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-                    <div className="space-y-6">
-                        <h2 className="text-4xl font-bold">{t.tech.title}</h2>
-                        <p className="text-lg text-gray-600 leading-relaxed">
-                            {t.tech.desc}
-                        </p>
-                        <ul className="space-y-4 pt-4 font-mono text-sm">
-                            <li className="flex items-center gap-3">
-                                <span className="w-3 h-3 bg-black"></span>
-                                Seismic Resistant (9.0)
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="w-3 h-3 bg-black"></span>
-                                Category 5 Hurricane Proof
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="w-3 h-3 bg-black"></span>
-                                Mold & Fire Proof
-                            </li>
-                        </ul>
+            {/* NEW: INTERIOR VISUAL */}
+            <section className="py-0">
+                <div className="w-full h-[80vh] relative">
+                    <img src="/images/dome/interior.png" alt="Dome Interior" className="w-full h-full object-cover" />
+                    <div className="absolute bottom-10 left-6 md:left-20 bg-white/90 p-8 max-w-lg backdrop-blur-md">
+                        <h3 className="text-2xl font-bold mb-2">Zen Living</h3>
+                        <p className="text-gray-600">The oculus skylight brings natural rhythm to your life. No sharp corners, only seamless flow.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* TECHNOLOGY DEEP DIVE */}
+            <section className="py-24 px-6 bg-white text-black">
+                <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+
+                    <div className="space-y-16">
+                        <div className="text-left space-y-4">
+                            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Why Airform?</h2>
+                            <p className="text-gray-500 font-mono tracking-widest text-xs uppercase">The Physics of Efficiency</p>
+                        </div>
+
+                        <div className="space-y-12">
+                            <div className="space-y-4">
+                                <h3 className="text-xl font-bold border-b border-black pb-2">01. Physics</h3>
+                                <p className="text-gray-600 leading-relaxed font-light">
+                                    A sphere is the strongest shape in nature. Wind simply flows around it, making it hurricane-proof.
+                                </p>
+                            </div>
+                            <div className="space-y-4">
+                                <h3 className="text-xl font-bold border-b border-black pb-2">02. Speed</h3>
+                                <p className="text-gray-600 leading-relaxed font-light">
+                                    We inflate the form in 4 hours. Spray concrete in 7 days. Move in in 30 days.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Visual Placeholder (Concrete Sphere) */}
-                    <div className="aspect-square bg-gray-300 rounded-full shadow-2xl flex items-center justify-center relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-black/20"></div>
-                        <span className="font-mono text-xs text-black/50 tracking-widest">AIRFORM VISUAL</span>
+                    {/* TECH IMAGE */}
+                    <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="/images/dome/tech.png" alt="Airform Construction" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black/10"></div>
+                    </div>
+
+                </div>
+            </section>
+
+            {/* INVESTMENT ROI */}
+            <section className="py-24 px-6 bg-black text-white">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-12 text-center text-white">The Math</h2>
+
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse font-mono text-sm">
+                            <thead>
+                                <tr className="border-b border-white/20 text-gray-500 uppercase tracking-widest">
+                                    <th className="py-4">Parameter</th>
+                                    <th className="py-4">Dome 3 (Airform)</th>
+                                    <th className="py-4">Traditional Villa</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-white/10">
+                                <tr className="hover:bg-white/5 transition-colors">
+                                    <td className="py-4 font-bold">Build Cost (Shell)</td>
+                                    <td className="py-4 text-[#00FF00]">$25,000</td>
+                                    <td className="py-4 text-red-500">$85,000+</td>
+                                </tr>
+                                <tr className="hover:bg-white/5 transition-colors">
+                                    <td className="py-4 font-bold">Construction Time</td>
+                                    <td className="py-4 text-[#00FF00]">30 Days</td>
+                                    <td className="py-4 text-red-500">8-12 Months</td>
+                                </tr>
+                                <tr className="hover:bg-white/5 transition-colors">
+                                    <td className="py-4 font-bold">Maintenance/Yr</td>
+                                    <td className="py-4 text-[#00FF00]">$200 (Paint only)</td>
+                                    <td className="py-4 text-red-500">$2,500+ (Plaster, Roof)</td>
+                                </tr>
+                                <tr className="hover:bg-white/5 transition-colors">
+                                    <td className="py-4 font-bold">Lifespan</td>
+                                    <td className="py-4 text-[#00FF00]">500+ Years (Stone)</td>
+                                    <td className="py-4 text-red-500">50-70 Years</td>
+                                </tr>
+                                <tr className="bg-white/10">
+                                    <td className="py-4 font-bold pl-2">Rental ROI (Bali)</td>
+                                    <td className="py-4 font-bold text-[#00FF00]">~28% / Year</td>
+                                    <td className="py-4 text-gray-400">~12% / Year</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="mt-12 text-center">
+                        <p className="text-gray-400 max-w-lg mx-auto mb-8 font-light">
+                            Stop investing in decaying drywall. Start investing in eternal geometry.
+                            Calculate your project implementation plan now.
+                        </p>
+                        <TelegramLoginButton
+                            dict={{
+                                login: {
+                                    button: "Calculate My ROI",
+                                    sub: "Launch AI Constructor"
+                                }
+                            }}
+                            botName="DogovorCheckBot"
+                            startParam="alex_sales"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* GLOBAL FOOTPRINT */}
+            <section className="py-24 px-6 bg-[#F0F0F0]">
+                <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div>
+                        <h4 className="font-bold uppercase tracking-widest mb-4">Locations</h4>
+                        <ul className="space-y-2 text-gray-500 font-light text-sm">
+                            <li>Bali, Indonesia (HQ)</li>
+                            <li>Phuket, Thailand</li>
+                            <li>Siargao, Philippines</li>
+                            <li>Goa, India (Coming Soon)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold uppercase tracking-widest mb-4">Services</h4>
+                        <ul className="space-y-2 text-gray-500 font-light text-sm">
+                            <li>Land Acquisition</li>
+                            <li>Architectural Planning</li>
+                            <li>Permit Management</li>
+                            <li>Turnkey Construction</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold uppercase tracking-widest mb-4">Contact</h4>
+                        <ul className="space-y-2 text-gray-500 font-light text-sm">
+                            <li>dome@chatedem.com</li>
+                            <li>Telegram Support: @Alex_Dome</li>
+                        </ul>
                     </div>
                 </div>
             </section>
