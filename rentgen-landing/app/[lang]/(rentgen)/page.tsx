@@ -1,17 +1,17 @@
 import React from "react";
-import ComparisonCalculator from "../components/ComparisonCalculator";
-import TelegramLoginButton from "../components/TelegramLoginButton";
-import FaqSection from "../components/FaqSection";
-import StickyCTA from "../components/StickyCTA";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+import ComparisonCalculator from "../../components/ComparisonCalculator";
+import TelegramLoginButton from "../../components/TelegramLoginButton";
+import FaqSection from "../../components/FaqSection";
+import StickyCTA from "../../components/StickyCTA";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 
 export default async function Home({ params }: { params: Promise<{ lang: "en" | "ru" | "es" | "pt" }> }) {
   const dictionaries = {
-    en: () => import("../dictionaries/en.json").then((module) => module.default),
-    ru: () => import("../dictionaries/ru.json").then((module) => module.default),
-    es: () => import("../dictionaries/es.json").then((module) => module.default),
-    pt: () => import("../dictionaries/pt.json").then((module) => module.default),
+    en: () => import("../../dictionaries/en.json").then((module) => module.default),
+    ru: () => import("../../dictionaries/ru.json").then((module) => module.default),
+    es: () => import("../../dictionaries/es.json").then((module) => module.default),
+    pt: () => import("../../dictionaries/pt.json").then((module) => module.default),
   };
   const { lang } = await params;
   const dict = await dictionaries[lang]();

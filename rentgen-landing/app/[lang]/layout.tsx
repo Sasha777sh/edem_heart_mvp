@@ -45,7 +45,7 @@ export default async function RootLayout({
   const { lang } = await params;
   return (
     <html lang={lang}>
-      <body className="bg-black text-white">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

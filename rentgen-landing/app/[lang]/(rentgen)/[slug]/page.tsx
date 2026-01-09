@@ -1,15 +1,15 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import { seoPages } from "../../lib/seoPages";
-import ComparisonCalculator from "../../components/ComparisonCalculator";
-import TelegramLoginButton from "../../components/TelegramLoginButton";
-import FaqSection from "../../components/FaqSection";
-import StickyCTA from "../../components/StickyCTA";
-import LanguageSwitcher from "../../components/LanguageSwitcher";
-import { generatePageContent } from "../../lib/geminiContentGenerator";
-import { TOP_PAGES_SLUGS } from "../../lib/topPages";
-import Breadcrumbs from "../../components/Breadcrumbs";
-import RelatedArticles from "../../components/RelatedArticles";
+import { seoPages } from "../../../lib/seoPages";
+import ComparisonCalculator from "../../../components/ComparisonCalculator";
+import TelegramLoginButton from "../../../components/TelegramLoginButton";
+import FaqSection from "../../../components/FaqSection";
+import StickyCTA from "../../../components/StickyCTA";
+import LanguageSwitcher from "../../../components/LanguageSwitcher";
+import { generatePageContent } from "../../../lib/geminiContentGenerator";
+import { TOP_PAGES_SLUGS } from "../../../lib/topPages";
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedArticles from "../../../components/RelatedArticles";
 
 // Pre-generate only top 1000 pages at build time
 export async function generateStaticParams() {
@@ -22,10 +22,10 @@ export async function generateStaticParams() {
 }
 
 const dictionaries = {
-    en: () => import("../../dictionaries/en.json").then((module) => module.default),
-    ru: () => import("../../dictionaries/ru.json").then((module) => module.default),
-    es: () => import("../../dictionaries/es.json").then((module) => module.default),
-    pt: () => import("../../dictionaries/pt.json").then((module) => module.default),
+    en: () => import("../../../dictionaries/en.json").then((module) => module.default),
+    ru: () => import("../../../dictionaries/ru.json").then((module) => module.default),
+    es: () => import("../../../dictionaries/es.json").then((module) => module.default),
+    pt: () => import("../../../dictionaries/pt.json").then((module) => module.default),
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: "en" | "ru", slug: string }> }) {
