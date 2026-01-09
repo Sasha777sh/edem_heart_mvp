@@ -86,7 +86,7 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
                                     sub: lang === 'ru' ? "Запустить в Telegram" : "Launch in Telegram"
                                 }
                             }}
-                            botName="DogovorCheckBot"
+                            botName="DomeLuxeBot"
                             startParam="alex_sales"
                         />
                     </div>
@@ -210,7 +210,7 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
                                     sub: "Launch AI Constructor"
                                 }
                             }}
-                            botName="DogovorCheckBot"
+                            botName="DomeLuxeBot"
                             startParam="alex_sales"
                         />
                     </div>
@@ -273,7 +273,7 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
                                     <span className="font-bold text-xl">$25,000</span>
                                     <TelegramLoginButton
                                         dict={{ login: { button: "Order", sub: "View Plan" } }}
-                                        botName="DogovorCheckBot" startParam="order_pod"
+                                        botName="DomeLuxeBot" startParam="order_pod"
                                     />
                                 </div>
                             </div>
@@ -298,7 +298,7 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
                                     <span className="font-bold text-xl">$65,000</span>
                                     <TelegramLoginButton
                                         dict={{ login: { button: "Order", sub: "View Plan" } }}
-                                        botName="DogovorCheckBot" startParam="order_hive"
+                                        botName="DomeLuxeBot" startParam="order_hive"
                                     />
                                 </div>
                             </div>
@@ -322,7 +322,7 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
                                     <span className="font-bold text-xl">$180,000</span>
                                     <TelegramLoginButton
                                         dict={{ login: { button: "Order", sub: "View Plan" } }}
-                                        botName="DogovorCheckBot" startParam="order_estate"
+                                        botName="DomeLuxeBot" startParam="order_estate"
                                     />
                                 </div>
                             </div>

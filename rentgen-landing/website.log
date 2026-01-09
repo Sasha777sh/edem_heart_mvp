@@ -5867,3 +5867,4 @@ https://nextjs.org/docs/messages/module-not-found
  GET /ru/dome 500 in 875ms (compile: 605ms, proxy.ts: 201ms, render: 69ms)
 ✓ Compiled in 1502ms
 ✓ Finished filesystem cache database compaction in 12.7s
+✓ Compiled in 3.7s

@@ -47,6 +47,7 @@ class FieldReader:
             print("⚠️ FieldReader Error: No GEMINI_API_KEY found in env or .env!")
             # Do NOT use a hardcoded key in production
         else:
+            print(f"DEBUG: FieldReader configured with key: {self.api_key[:5]}...{self.api_key[-4:]}")
             genai.configure(api_key=self.api_key)
             
         self.model = genai.GenerativeModel('gemini-2.0-flash') # Updated to latest stable model
