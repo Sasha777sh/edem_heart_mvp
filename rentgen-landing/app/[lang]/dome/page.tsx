@@ -243,6 +243,90 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
                 </div>
             </section>
 
+            {/* MODELS CATALOG */}
+            <section className="py-24 px-6 bg-[#F8F8F8] text-black">
+                <div className="max-w-6xl mx-auto text-center space-y-16">
+                    <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Choose Your Geometry</h2>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+
+                        {/* Model 1: Eco Pod */}
+                        <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+                            <div className="h-64 overflow-hidden">
+                                <img src="/images/dome/model_pod.png" alt="Eco Pod" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                            </div>
+                            <div className="p-8 text-left space-y-4">
+                                <div>
+                                    <h4 className="text-2xl font-bold">The Eco Pod</h4>
+                                    <p className="text-sm font-mono text-gray-400">35m² • Studio • 1 Bath</p>
+                                </div>
+                                <p className="text-gray-600 font-light text-sm line-clamp-3">
+                                    Perfect for glamping resorts or guest houses. High ROI rental unit.
+                                    Minimalist design with panoramic oculus.
+                                </p>
+                                <div className="pt-4 border-t border-gray-100 flex justify-between items-center">
+                                    <span className="font-bold text-xl">$25,000</span>
+                                    <TelegramLoginButton
+                                        dict={{ login: { button: "Order", sub: "View Plan" } }}
+                                        botName="DogovorCheckBot" startParam="order_pod"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Model 2: Family Hive */}
+                        <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all group relative border-2 border-black/5">
+                            <div className="absolute top-4 right-4 bg-black text-white text-xs px-3 py-1 rounded-full uppercase tracking-widest font-bold">Bestseller</div>
+                            <div className="h-64 overflow-hidden">
+                                <img src="/images/dome/model_hive.png" alt="Family Hive" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                            </div>
+                            <div className="p-8 text-left space-y-4">
+                                <div>
+                                    <h4 className="text-2xl font-bold">Family Hive</h4>
+                                    <p className="text-sm font-mono text-gray-400">90m² • 2 Bed • 2 Bath</p>
+                                </div>
+                                <p className="text-gray-600 font-light text-sm line-clamp-3">
+                                    Double-dome structure connecting living and sleeping zones.
+                                    Ideal for small families or premium long-term rentals.
+                                </p>
+                                <div className="pt-4 border-t border-gray-100 flex justify-between items-center">
+                                    <span className="font-bold text-xl">$65,000</span>
+                                    <TelegramLoginButton
+                                        dict={{ login: { button: "Order", sub: "View Plan" } }}
+                                        botName="DogovorCheckBot" startParam="order_hive"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Model 3: Luxe Estate */}
+                        <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+                            <div className="h-64 overflow-hidden">
+                                <img src="/images/dome/model_estate.png" alt="Luxe Estate" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                            </div>
+                            <div className="p-8 text-left space-y-4">
+                                <div>
+                                    <h4 className="text-2xl font-bold">Luxe Estate</h4>
+                                    <p className="text-sm font-mono text-gray-400">250m² • 4 Bed • Pool</p>
+                                </div>
+                                <p className="text-gray-600 font-light text-sm line-clamp-3">
+                                    The ultimate architectural statement. Infinity pool integration,
+                                    panoramic glass walls, smart home ecosystem.
+                                </p>
+                                <div className="pt-4 border-t border-gray-100 flex justify-between items-center">
+                                    <span className="font-bold text-xl">$180,000</span>
+                                    <TelegramLoginButton
+                                        dict={{ login: { button: "Order", sub: "View Plan" } }}
+                                        botName="DogovorCheckBot" startParam="order_estate"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
             <footer className="py-12 text-center text-xs font-mono uppercase text-gray-400">
                 Dome Luxe Global © 2026. Designed by Antigravity.
             </footer>
