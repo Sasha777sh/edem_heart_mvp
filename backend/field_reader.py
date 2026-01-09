@@ -1,7 +1,11 @@
 import google.generativeai as genai
 import os
 import requests
+from dotenv import load_dotenv
 from typing import Dict, Optional, Union
+
+load_dotenv()
+
 from backend.prompts import (
     COLD_SYSTEM_PROMPT,
     RED_FLAG_SYSTEM_PROMPT,
@@ -18,16 +22,28 @@ from backend.prompts import (
     PROMPT_SYSTEM_PROMPT,
     PROMPT_PREMIUM_PROMPT,
     MARKETPLACE_SYSTEM_PROMPT,
-    MARKETPLACE_PREMIUM_PROMPT
+    MARKETPLACE_PREMIUM_PROMPT,
+    DOME_SYSTEM_PROMPT,
+    DOME_PREMIUM_PROMPT,
+    ALEX_SALES_PROMPT,
+    ALEX_PREMIUM_PROMPT,
+    RISK_SCANNER_SYSTEM_PROMPT,
+    RISK_AUDITOR_PREMIUM_PROMPT
 )
 from backend.privacy import sanitize_personal_data, is_safe_to_send
 
 class FieldReader:
     def __init__(self, api_key: str = None):
-        # Fallback to key in env or default
-        self.api_key = api_key or os.getenv("GEMINI_API_KEY") or "AIzaSyAVcKK5KcpduBv2hh-uvMreDGvTHX-uURE" 
-        genai.configure(api_key=self.api_key)
-        self.model = genai.GenerativeModel('gemini-3-flash-preview')  # Gemini 3 (official name)
+        # 1. Try env var first
+        self.api_key = api_key or os.getenv("GEMINI_API_KEY")
+        
+        if not self.api_key:
+            print("⚠️ FieldReader Error: No GEMINI_API_KEY found in env or .env!")
+            # Do NOT use a hardcoded key in production
+        else:
+            genai.configure(api_key=self.api_key)
+            
+        self.model = genai.GenerativeModel('gemini-2.0-flash') # Updated to latest stable model
 
     def _get_prompt(self, mode: str) -> str:
         # FACTORY MODES
@@ -41,6 +57,8 @@ class FieldReader:
         if mode == "psycho_premium": return PSYCHO_PREMIUM_PROMPT
         if mode == "prompts_premium": return PROMPT_PREMIUM_PROMPT
         if mode == "market_premium": return MARKETPLACE_PREMIUM_PROMPT
+        if mode == "dome_premium": return DOME_PREMIUM_PROMPT
+        if mode == "alex_premium": return ALEX_PREMIUM_PROMPT
 
         # STANDARD MODES
         if mode == "red_flag": return RED_FLAG_SYSTEM_PROMPT
@@ -50,6 +68,8 @@ class FieldReader:
         if mode == "psycho": return PSYCHO_SYSTEM_PROMPT
         if mode == "prompts": return PROMPT_SYSTEM_PROMPT
         if mode == "market": return MARKETPLACE_SYSTEM_PROMPT
+        if mode == "dome": return DOME_SYSTEM_PROMPT
+        if mode == "alex_sales": return ALEX_SALES_PROMPT
         if mode == "contract": return COLD_SYSTEM_PROMPT
         
         return COLD_SYSTEM_PROMPT # Default

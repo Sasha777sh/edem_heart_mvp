@@ -17,9 +17,12 @@ class EnergyLevel(Enum):
 class EDEMBrain:
     def __init__(self):
         # Configure Gemini API
-        # NOTE: In production, use os.environ.get("GEMINI_API_KEY")
-        self.api_key = "AIzaSyAVcKK5KcpduBv2hh-uvMreDGvTHX-uURE"
-        genai.configure(api_key=self.api_key)
+        self.api_key = os.environ.get("GEMINI_API_KEY")
+        if not self.api_key:
+             print("⚠️ WARNING: GEMINI_API_KEY not found in environment variables.")
+        else:
+             genai.configure(api_key=self.api_key)
+             
         self.model = genai.GenerativeModel('gemini-2.0-flash')
         
         self.conversation_history = [] 

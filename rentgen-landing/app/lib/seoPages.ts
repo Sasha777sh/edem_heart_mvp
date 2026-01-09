@@ -1,4 +1,4 @@
-import { CITIES_RU, CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, TARO_CARDS_RU, ZODIAC_RU, CAREER_RU, PSYCHO_RU, AUTO_RU, MARKETPLACE_RU } from './seoData';
+import { CONTRACT_TYPES_RU, DREAMS_RU, SYMPTOMS_RU, RED_FLAGS_RU, PSYCHO_RU } from './seoData';
 
 export type SeoPage = {
     slug: string;
@@ -25,17 +25,15 @@ const MANUAL_PAGES: SeoPage[] = [
 function generatePages(): SeoPage[] {
     const pages: SeoPage[] = [...MANUAL_PAGES];
 
-    // 1. CONTRACTS x CITIES (Lawyer Replacement)
+    // 1. CONTRACTS (General Safety)
     CONTRACT_TYPES_RU.forEach(type => {
-        CITIES_RU.forEach(city => {
-            pages.push({
-                slug: `proverit-dogovor-${type.slug}-${translit(city)}`,
-                title: `Проверить договор ${type.name} в г. ${city} | RENTGEN`,
-                h1: `Аудит договора: ${type.name} (${city})`,
-                desc: `Как найти риски (${type.risk}) в договоре в г. ${city}? Загрузите фото/PDF. Проверка юристом (AI) онлайн.`,
-                category: "Юрист",
-                startParam: "paper"
-            });
+        pages.push({
+            slug: `proverit-dogovor-${type.slug}`,
+            title: `Проверить договор ${type.name} онлайн | RENTGEN`,
+            h1: `Аудит договора: ${type.name}`,
+            desc: `Как найти риски (${type.risk}) в договоре? Загрузите фото/PDF. Проверка юристом (AI) онлайн.`,
+            category: "Юрист",
+            startParam: "paper"
         });
     });
 
@@ -84,43 +82,7 @@ function generatePages(): SeoPage[] {
         });
     });
 
-    // 5. TAROT (New)
-    TARO_CARDS_RU.forEach(card => {
-        pages.push({
-            slug: `karta-taro-${card.slug}-znachenie`,
-            title: `Карта Таро ${card.name}: значение в раскладе | RENTGEN`,
-            h1: `Таро: ${card.name} (${card.meaning})`,
-            desc: `Что значит карта ${card.name} в любви и работе? Получи расклад от ИИ-таролога прямо сейчас.`,
-            category: "Эзотерика",
-            startParam: "dream"
-        });
-    });
-
-    // 6. ZODIAC (New)
-    ZODIAC_RU.forEach(z => {
-        pages.push({
-            slug: `goroskop-${z.slug}-na-segodnya`,
-            title: `Гороскоп ${z.name}: что ждет сегодня? | RENTGEN`,
-            h1: `Астропрогноз: ${z.name}`,
-            desc: `Точный прогноз для знака ${z.name}. Любовь, карьера, опасности дня. Спроси нейро-астролога.`,
-            category: "Эзотерика",
-            startParam: "dream"
-        });
-    });
-
-    // 7. CAREER (New)
-    CAREER_RU.forEach(c => {
-        pages.push({
-            slug: `karera-${c.slug}`,
-            title: `${c.name}: советы юриста и HR | RENTGEN`,
-            h1: `${c.name}`,
-            desc: `Проблема: ${c.target}. Как решить через трудовой кодекс или переговоры? Загрузи документы или переписку с боссом.`,
-            category: "Карьера",
-            startParam: "paper"
-        });
-    });
-
-    // 8. PSYCHOSOMATICS (The Profit Step)
+    // 5. PSYCHOSOMATICS (The Profit Step)
     PSYCHO_RU.forEach(p => {
         pages.push({
             slug: `psihosomatika-${p.slug}`,
@@ -129,32 +91,6 @@ function generatePages(): SeoPage[] {
             desc: `Узнайте, какая эмоция вызывает симптом "${p.name}". Вероятная причина: ${p.cause}. Полная расшифровка связи тела и психики.`,
             category: "Психосоматика",
             startParam: "psycho"
-        });
-    });
-
-    // 9. AUTO (The Scale Step)
-    AUTO_RU.forEach(a => {
-        CITIES_RU.slice(0, 10).forEach(city => { // Only top 10 cities for now to keep build fast
-            pages.push({
-                slug: `auto-${a.slug}-${translit(city)}`,
-                title: `${a.name} в г. ${city}: диагностика и причины | RENTGEN`,
-                h1: `Что делать если ${a.name.toLowerCase()} (${city})`,
-                desc: `Диагностика авто в ${city}. Если ${a.name.toLowerCase()}, вероятная причина: ${a.symptom}. Загрузи фото или опиши звук для AI-анализа.`,
-                category: "Авто",
-                startParam: "paper"
-            });
-        });
-    });
-
-    // 10. MARKETPLACE (The High Ticket Step)
-    MARKETPLACE_RU.forEach(m => {
-        pages.push({
-            slug: `marketplace-${m.slug}`,
-            title: `${m.name}: аудит и риски | RENTGEN`,
-            h1: `Разбор: ${m.name}. Как защитить селлера?`,
-            desc: `Анализ документа "${m.name}". Проблема: ${m.target}. Узнайте, как оспорить штрафы и найти скрытые ловушки в оферте с помощью AI.`,
-            category: "Маркетплейсы",
-            startParam: "market"
         });
     });
 

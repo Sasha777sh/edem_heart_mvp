@@ -1,4 +1,9 @@
 import asyncio
+import os
+from dotenv import load_dotenv
+
+load_dotenv() # Load environment variables from .env file
+
 import numpy as np
 from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware

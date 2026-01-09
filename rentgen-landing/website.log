@@ -1,0 +1,52 @@
+
+> rentgen-landing@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.21:3000
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 1271ms
+ GET /ru 200 in 3.4s (compile: 3.1s, proxy.ts: 22ms, generate-params: 460ms, render: 292ms)
+ GET /ru 200 in 125ms (compile: 9ms, proxy.ts: 6ms, generate-params: 3ms, render: 110ms)
+ GET /ru 200 in 849ms (compile: 64ms, proxy.ts: 93ms, generate-params: 22ms, render: 693ms)
+ GET /ru 200 in 537ms (compile: 59ms, proxy.ts: 17ms, generate-params: 52µs, render: 461ms)
+○ Compiling /_not-found/page ...
+ GET /ru 404 in 3.9s (compile: 3.5s, proxy.ts: 29ms, render: 319ms)
+ GET /ru 200 in 473ms (compile: 268ms, proxy.ts: 8ms, generate-params: 79µs, render: 197ms)
+ GET /ru 200 in 1583ms (compile: 50ms, proxy.ts: 40ms, generate-params: 16ms, render: 1494ms)
+ GET /ru 200 in 1618ms (compile: 26ms, proxy.ts: 108ms, generate-params: 49µs, render: 1484ms)
+ GET /ru 200 in 1315ms (compile: 55ms, proxy.ts: 31ms, generate-params: 55µs, render: 1229ms)
+ GET /ru 200 in 1396ms (compile: 151ms, proxy.ts: 29ms, generate-params: 62µs, render: 1216ms)
+ GET /ru 200 in 925ms (compile: 88ms, proxy.ts: 25ms, generate-params: 85µs, render: 812ms)
+ GET /ru 200 in 904ms (compile: 62ms, proxy.ts: 29ms, generate-params: 937µs, render: 813ms)
+ GET /ru 200 in 850ms (compile: 77ms, proxy.ts: 71ms, generate-params: 109µs, render: 701ms)
+ GET /ru 200 in 1094ms (compile: 35ms, proxy.ts: 6ms, generate-params: 14ms, render: 1053ms)
+ GET /ru 200 in 1192ms (compile: 31ms, proxy.ts: 10ms, generate-params: 46µs, render: 1151ms)
+ GET /ru 200 in 1182ms (compile: 169ms, proxy.ts: 61ms, generate-params: 41µs, render: 952ms)
+ GET /ru 200 in 741ms (compile: 77ms, proxy.ts: 58ms, generate-params: 45µs, render: 606ms)
+ GET /ru 200 in 529ms (compile: 35ms, proxy.ts: 7ms, generate-params: 56µs, render: 487ms)
+ GET /ru 200 in 410ms (compile: 77ms, proxy.ts: 45ms, generate-params: 47µs, render: 288ms)
+⨯ TypeError: Cannot read properties of undefined (reading 'button')
+    at TelegramLoginButton (app/components/TelegramLoginButton.tsx:27:55)
+  25 |
+  26 |             <div className="flex flex-col items-start leading-none relative z-10">
+> 27 |                 <span className="text-sm">{dict.login.button}</span>
+     |                                                       ^
+  28 |                 <span className="text-[10px] opacity-80 font-normal mt-0.5">{dict.login.sub}</span>
+  29 |             </div>
+  30 |         </a> {
+  digest: '1492064150'
+}
+ GET /ru/dome 500 in 2.7s (compile: 2.4s, proxy.ts: 69ms, generate-params: 882ms, render: 198ms)
+✓ Compiled in 184ms
+ GET /ru/dome 200 in 4.6s (compile: 1295ms, proxy.ts: 12ms, generate-params: 9ms, render: 3.3s)
+ GET /ru 200 in 5.0s (compile: 363ms, proxy.ts: 51ms, generate-params: 27ms, render: 4.6s)
+ GET /ru 200 in 2.6s (compile: 940ms, proxy.ts: 12ms, generate-params: 130µs, render: 1630ms)
+ GET /ru/dome 200 in 578ms (compile: 65ms, proxy.ts: 72ms, generate-params: 14ms, render: 441ms)
+ GET /ru 200 in 308ms (compile: 54ms, proxy.ts: 9ms, generate-params: 7ms, render: 245ms)
+ GET /ru 200 in 180ms (compile: 9ms, proxy.ts: 15ms, generate-params: 33µs, render: 156ms)
+ GET /ru/dome 200 in 1178ms (compile: 180ms, proxy.ts: 176ms, generate-params: 19ms, render: 822ms)
+ GET /ru/dome 200 in 274ms (compile: 38ms, proxy.ts: 13ms, generate-params: 43µs, render: 223ms)

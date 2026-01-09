@@ -2,6 +2,18 @@ import asyncio
 import logging
 import sys
 import os
+from dotenv import load_dotenv
+
+# FORCIBLY LOAD ENV
+load_dotenv()
+
+# DEBUG PRINT TO CONSOLE
+key = os.getenv("GEMINI_API_KEY")
+if key:
+    print(f"✅ FOUND GEMINI_API_KEY: {key[:5]}...{key[-4:]}")
+else:
+    print("❌ ERROR: GEMINI_API_KEY NOT FOUND IN ENV")
+
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo, FSInputFile
@@ -104,19 +116,21 @@ def get_main_keyboard(lang="en"):
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Сонник")],
             [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
-            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="🛒 Marketplace")],
-            [types.KeyboardButton(text="📝 Юрист"), types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="🛒 Market")],
+            [types.KeyboardButton(text="📝 Юрист"), types.KeyboardButton(text="🏰 Dome")],
+            [types.KeyboardButton(text="🤵 Alex"), types.KeyboardButton(text="🎬 Reels")]
         ]
     else:
         buttons = [
             [types.KeyboardButton(text="🚩 RedFlag"), types.KeyboardButton(text="🌙 Dream")],
             [types.KeyboardButton(text="🩸 Med"), types.KeyboardButton(text="🧠 Psychosom")],
-            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="🛒 Marketplace")],
-            [types.KeyboardButton(text="📝 Law"), types.KeyboardButton(text="🎬 Reels")]
+            [types.KeyboardButton(text="📟 Prompts"), types.KeyboardButton(text="🛒 Market")],
+            [types.KeyboardButton(text="📝 Law"), types.KeyboardButton(text="🏰 Dome")],
+            [types.KeyboardButton(text="🤵 Alex"), types.KeyboardButton(text="🎬 Reels")]
         ]
     return types.ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
 
-@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom", "📟 Prompts", "🛒 Marketplace"}))
+@dp.message(F.text.in_({"🚩 RedFlag", "🌙 Сонник", "🌙 Dream", "🩸 Med", "📝 Юрист", "📝 Law", "🎬 Reels", "🧠 Psychosom", "📟 Prompts", "🛒 Market", "🏰 Dome", "🤵 Alex"}))
 async def handle_menu_click(message: types.Message):
     """
     Switch Mode via Menu.
@@ -139,8 +153,12 @@ async def handle_menu_click(message: types.Message):
         mode = "psycho"
     elif "Prompts" in txt:
         mode = "prompts"
-    elif "Marketplace" in txt:
+    elif "Market" in txt:
         mode = "market"
+    elif "Dome" in txt:
+        mode = "dome"
+    elif "Alex" in txt:
+        mode = "alex_sales"
     elif "RedFlag" in txt:
         mode = "red_flag"
     else:
@@ -457,7 +475,9 @@ async def process_payment(callback: types.CallbackQuery, mode: str):
         "paper": 250,
         "psycho": 70,
         "prompts": 30,
-        "market": 150
+        "market": 150,
+        "dome": 190,
+        "alex_sales": 300
     }
     
     titles = {
@@ -467,7 +487,9 @@ async def process_payment(callback: types.CallbackQuery, mode: str):
         "paper": "📝 Paper: Pre-trial Claim",
         "psycho": "🧠 Psychosom: Root Cause",
         "prompts": "📟 AI Prompt: Senior Pack",
-        "market": "🛒 Marketplace: Trap Audit"
+        "market": "🛒 Marketplace: Trap Audit",
+        "dome": "🏰 Dome: Project & Specification",
+        "alex_sales": "🤵 Alex: Asia Investment Plan"
     }
 
     desc = "Полный отчет + прогноз + рекомендации."
