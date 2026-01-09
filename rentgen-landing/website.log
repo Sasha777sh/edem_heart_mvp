@@ -4531,3 +4531,96 @@ https://nextjs.org/docs/messages/module-not-found
  GET /ru/dome 200 in 9.4s (compile: 232ms, proxy.ts: 57ms, generate-params: 131µs, render: 9.1s)
  GET /ru/dome 200 in 7.3s (compile: 302ms, proxy.ts: 18ms, generate-params: 138µs, render: 7.0s)
  GET /ru/dome 200 in 4.4s (compile: 203ms, proxy.ts: 219ms, generate-params: 109µs, render: 4.0s)
+✓ Compiled in 2.2s
+✓ Compiled in 1034ms
+⨯ ReferenceError: ComparisonSlider is not defined
+    at DomePage (app/[lang]/(dome)/dome/page.tsx:154:14)
+  152 |
+  153 |             {/* COMPARISON SLIDER (DIRTY vs CLEAN) */}
+> 154 |             <ComparisonSlider />
+      |              ^
+  155 |
+  156 |             {/* INVESTMENT ROI */}
+  157 |             <section className="py-24 px-6 bg-black text-white"> {
+  digest: '2683596925'
+}
+ GET /ru/dome 200 in 1819ms (compile: 1005ms, proxy.ts: 190ms, generate-params: 18ms, render: 623ms)
+⨯ ReferenceError: ComparisonSlider is not defined
+    at DomePage (app/[lang]/(dome)/dome/page.tsx:154:14)
+  152 |
+  153 |             {/* COMPARISON SLIDER (DIRTY vs CLEAN) */}
+> 154 |             <ComparisonSlider />
+      |              ^
+  155 |
+  156 |             {/* INVESTMENT ROI */}
+  157 |             <section className="py-24 px-6 bg-black text-white"> {
+  digest: '2683596925'
+}
+ GET /ru/dome 200 in 688ms (compile: 216ms, proxy.ts: 35ms, generate-params: 91µs, render: 438ms)
+⨯ ReferenceError: ComparisonSlider is not defined
+    at DomePage (app/[lang]/(dome)/dome/page.tsx:154:14)
+  152 |
+  153 |             {/* COMPARISON SLIDER (DIRTY vs CLEAN) */}
+> 154 |             <ComparisonSlider />
+      |              ^
+  155 |
+  156 |             {/* INVESTMENT ROI */}
+  157 |             <section className="py-24 px-6 bg-black text-white"> {
+  digest: '2683596925'
+}
+⨯ ReferenceError: ComparisonSlider is not defined
+    at DomePage (app/[lang]/(dome)/dome/page.tsx:154:14)
+  152 |
+  153 |             {/* COMPARISON SLIDER (DIRTY vs CLEAN) */}
+> 154 |             <ComparisonSlider />
+      |              ^
+  155 |
+  156 |             {/* INVESTMENT ROI */}
+  157 |             <section className="py-24 px-6 bg-black text-white"> {
+  digest: '2683596925'
+}
+ GET /ru/dome 200 in 566ms (compile: 99ms, proxy.ts: 49ms, generate-params: 64µs, render: 418ms)
+⨯ ReferenceError: ComparisonSlider is not defined
+    at DomePage (app/[lang]/(dome)/dome/page.tsx:154:14)
+  152 |
+  153 |             {/* COMPARISON SLIDER (DIRTY vs CLEAN) */}
+> 154 |             <ComparisonSlider />
+      |              ^
+  155 |
+  156 |             {/* INVESTMENT ROI */}
+  157 |             <section className="py-24 px-6 bg-black text-white"> {
+  digest: '2683596925'
+}
+ GET /ru/dome 200 in 1105ms (compile: 38ms, proxy.ts: 6ms, generate-params: 65µs, render: 1061ms)
+⨯ ReferenceError: ComparisonSlider is not defined
+    at DomePage (app/[lang]/(dome)/dome/page.tsx:154:14)
+  152 |
+  153 |             {/* COMPARISON SLIDER (DIRTY vs CLEAN) */}
+> 154 |             <ComparisonSlider />
+      |              ^
+  155 |
+  156 |             {/* INVESTMENT ROI */}
+  157 |             <section className="py-24 px-6 bg-black text-white"> {
+  digest: '2683596925'
+}
+ GET /ru/dome 200 in 2.5s (compile: 28ms, proxy.ts: 14ms, generate-params: 65µs, render: 2.5s)
+ GET /ru/dome 200 in 1904ms (compile: 264ms, proxy.ts: 69ms, generate-params: 95µs, render: 1571ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 6ms
+ GET /ru/dome 200 in 9.0s (compile: 1433ms, proxy.ts: 151ms, generate-params: 48ms, render: 7.4s)
+ GET /ru/dome 200 in 4.6s (compile: 184ms, proxy.ts: 31ms, generate-params: 24ms, render: 4.4s)
+ GET /ru/dome 200 in 4.1s (compile: 131ms, proxy.ts: 68ms, generate-params: 169µs, render: 3.9s)
+ GET /ru/dome 200 in 3.3s (compile: 280ms, proxy.ts: 113ms, generate-params: 209µs, render: 2.9s)
+ GET /ru/dome 200 in 2.7s (compile: 201ms, proxy.ts: 40ms, generate-params: 100µs, render: 2.5s)
+ GET /ru/dome 200 in 2.1s (compile: 165ms, proxy.ts: 80ms, generate-params: 25ms, render: 1842ms)

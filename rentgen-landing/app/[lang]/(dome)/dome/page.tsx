@@ -3,6 +3,7 @@ import LanguageSwitcher from "../../../components/LanguageSwitcher";
 import StickyCTA from "../../../components/StickyCTA";
 import TelegramLoginButton from "@/app/components/TelegramLoginButton";
 import ROICalculator from "@/app/components/dome/ROICalculator";
+import ComparisonSlider from "@/app/components/dome/ComparisonSlider";
 
 export default async function DomePage({ params }: { params: Promise<{ lang: "en" | "ru" | "es" | "pt" }> }) {
     const { lang } = await params;
@@ -149,6 +150,9 @@ export default async function DomePage({ params }: { params: Promise<{ lang: "en
 
                 </div>
             </section>
+
+            {/* COMPARISON SLIDER (DIRTY vs CLEAN) */}
+            <ComparisonSlider />
 
             {/* INVESTMENT ROI */}
             <section className="py-24 px-6 bg-black text-white">
