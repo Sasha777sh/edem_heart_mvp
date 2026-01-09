@@ -20,5 +20,16 @@ export const TOP_PAGES_SLUGS = [
 
     // Tarot
     "karta-taro-shut-znachenie",
-    "karta-taro-mag-znachenie"
+    "karta-taro-mag-znachenie",
+
+    // DOME LUXE (High Priority)
+    "investicii-v-nedvizhimost-bali",
+    "investicii-v-nedvizhimost-dubai",
+    "investicii-v-nedvizhimost-phuket",
+    "postroit-villu-tsena-bali",
+    "postroit-villu-tsena-phuket",
+    "biznes-na-arende-bali",
+    "kupolnyy-dom-pod-klyuch-bali",
+    "tehnologiya-aircrete-otzyvy",
+    "bystrovozvodimye-doma-dlya-zhizni"
 ];
